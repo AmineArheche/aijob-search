@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Job Search | Multi-Agent Architecture & Operations Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦅</text></svg>">
+</head>
+<body>
+  <!-- Background Glow & Grid -->
+  <div class="cosmic-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-avatar">
+        <span class="avatar-icon">🦅</span>
+        <span class="pulse-indicator"></span>
+      </div>
+      <div class="brand-meta">
+        <div class="brand-title">
+          <span class="gradient-text">AI JOB SEARCH</span>
+          <span class="version-tag">Agentic v1.0</span>
+        </div>
+        <p class="brand-subtitle">Autonomous Multi-Agent Architecture & Application Command Center</p>
+      </div>
+    </div>
+
+    <!-- Live System Badges -->
+    <div class="header-status-group" id="headerStatusGroup">
+      <div class="status-pill status-active">
+        <span class="status-dot"></span>
+        <span class="status-label">Agents: <strong id="agentsCountLabel">7 Online</strong></span>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot green"></span>
+        <span class="status-label">Node: <strong id="nodeVersionLabel">v22</strong></span>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot green"></span>
+        <span class="status-label">Python: <strong id="pythonStatusLabel">3.13</strong></span>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot purple"></span>
+        <span class="status-label">Pipeline: <strong id="activeJobsLabel">Active</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="dashboard-shell">
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="architecture">
+        <span class="tab-icon">🕸️</span>
+        <span class="tab-title">Architecture & Agents Map</span>
+      </button>
+      <button class="nav-tab" data-tab="scrapers">
+        <span class="tab-icon">🔍</span>
+        <span class="tab-title">Portal Scrapers & Discovery</span>
+      </button>
+      <button class="nav-tab" data-tab="evaluator">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-title">AI Fit Evaluator & Drafter</span>
+      </button>
+      <button class="nav-tab" data-tab="tracker">
+        <span class="tab-icon">📊</span>
+        <span class="tab-title">Application Funnel Tracker</span>
+      </button>
+      <button class="nav-tab" data-tab="profile">
+        <span class="tab-icon">👤</span>
+        <span class="tab-title">Candidate Profile Center</span>
+      </button>
+      <button class="nav-tab" data-tab="interview">
+        <span class="tab-icon">🎯</span>
+        <span class="tab-title">STAR Interview Coach</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: ARCHITECTURE & AGENTS MAP -->
+    <section id="tab-architecture" class="tab-content active">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">Multi-Agent System Architecture</h2>
+          <p class="section-desc">Interactive execution flow showing the single-source-of-truth pipeline from discovery to signed offer.</p>
+        </div>
+        <div class="action-badges">
+          <span class="chip chip-cyan">Drafter-Reviewer Loop</span>
+          <span class="chip chip-purple">Thin-Pointer Design</span>
+          <span class="chip chip-green">Zero Config Drift</span>
+        </div>
+      </div>
+
+      <!-- Interactive Architecture Visualizer -->
+      <div class="arch-visualizer-card">
+        <div class="arch-flow-diagram">
+          <!-- Flow Step 1 -->
+          <div class="arch-node" onclick="selectAgent('agent-profile')">
+            <div class="node-badge">Step 1</div>
+            <div class="node-icon">👤</div>
+            <div class="node-title">Candidate Profiler</div>
+            <div class="node-sub"><code>/setup</code></div>
+            <div class="node-tag">Ground Truth</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 2 -->
+          <div class="arch-node" onclick="selectAgent('agent-scraper')">
+            <div class="node-badge">Step 2</div>
+            <div class="node-icon">🌐</div>
+            <div class="node-title">Portal Scrapers</div>
+            <div class="node-sub"><code>/scrape</code></div>
+            <div class="node-tag">6 Portals</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 3 -->
+          <div class="arch-node" onclick="selectAgent('agent-evaluator')">
+            <div class="node-badge">Step 3</div>
+            <div class="node-icon">⚖️</div>
+            <div class="node-title">Fit Evaluator</div>
+            <div class="node-sub"><code>04-job-eval</code></div>
+            <div class="node-tag">Dual Gates</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 4 -->
+          <div class="arch-node active-flow" onclick="selectAgent('agent-drafter')">
+            <div class="node-badge">Step 4</div>
+            <div class="node-icon">📝</div>
+            <div class="node-title">Tailored Drafter</div>
+            <div class="node-sub"><code>/apply</code></div>
+            <div class="node-tag">LaTeX Engine</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 5 -->
+          <div class="arch-node" onclick="selectAgent('agent-reviewer')">
+            <div class="node-badge">Step 5</div>
+            <div class="node-icon">🛡️</div>
+            <div class="node-title">ATS Reviewer</div>
+            <div class="node-sub"><code>verify_pdf</code></div>
+            <div class="node-tag">Parseability</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 6 -->
+          <div class="arch-node" onclick="selectAgent('agent-interview')">
+            <div class="node-badge">Step 6</div>
+            <div class="node-icon">🎤</div>
+            <div class="node-title">Interview Coach</div>
+            <div class="node-sub"><code>/interview</code></div>
+            <div class="node-tag">STAR Method</div>
+          </div>
+
+          <div class="flow-arrow">
+            <span class="arrow-line"></span>
+            <span class="arrow-head">▶</span>
+          </div>
+
+          <!-- Flow Step 7 -->
+          <div class="arch-node" onclick="selectAgent('agent-tracker')">
+            <div class="node-badge">Step 7</div>
+            <div class="node-icon">📈</div>
+            <div class="node-title">Funnel Tracker</div>
+            <div class="node-sub"><code>/html-report</code></div>
+            <div class="node-tag">Analytics</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent Deep Inspector Card -->
+      <div class="grid-2col">
+        <div class="glass-panel" id="agentInspectorCard">
+          <div class="panel-header">
+            <h3 class="panel-title" id="inspectorName">Select an Agent Node Above</h3>
+            <span class="status-badge status-live" id="inspectorCategory">Intelligence</span>
+          </div>
+          <p class="panel-desc" id="inspectorDesc">Click on any architecture node to inspect its execution triggers, canonical specifications, system prompt guidelines, and tools.</p>
+          
+          <div class="detail-block">
+            <span class="detail-label">Canonical Specification File</span>
+            <div class="code-pill" id="inspectorSpec"><code>CLAUDE.md / .claude/commands/</code></div>
+          </div>
+
+          <div class="detail-block">
+            <span class="detail-label">Agent Core Capabilities</span>
+            <div class="tags-container" id="inspectorCapabilities">
+              <span class="skill-tag">Multi-Portal Search</span>
+              <span class="skill-tag">Fit Evaluation</span>
+              <span class="skill-tag">LaTeX Tailoring</span>
+            </div>
+          </div>
+
+          <div class="detail-block">
+            <span class="detail-label">Command Invocation</span>
+            <div class="cli-box" id="inspectorCommand"><code>/setup</code></div>
+          </div>
+        </div>
+
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Workspace Agent Specifications</h3>
+            <span class="status-badge">Single Source of Truth</span>
+          </div>
+          <p class="panel-desc">All agents adhere to thin pointers defined in <code>AGENTS.md</code>. Agent runtimes discover capabilities without duplicating configuration.</p>
+          <div class="agent-cards-mini" id="miniAgentsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: PORTAL SCRAPERS & DISCOVERY -->
+    <section id="tab-scrapers" class="tab-content">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">Job Discovery & Portal Aggregators</h2>
+          <p class="section-desc">Search across 6 integrated job board skills using unified search criteria.</p>
+        </div>
+        <div class="action-badges">
+          <span class="chip chip-cyan">Freehire (50+ ATS)</span>
+          <span class="chip chip-purple">LinkedIn Global</span>
+          <span class="chip chip-green">Jobindex Denmark</span>
+        </div>
+      </div>
+
+      <!-- Scraper Query Bar -->
+      <div class="glass-panel filter-panel">
+        <div class="search-inputs-grid">
+          <div class="input-group">
+            <label>Target Role or Keywords</label>
+            <input type="text" id="scraperQueryInput" placeholder="e.g. Full Stack, AI Engineer, Python" value="Full Stack Engineer">
+          </div>
+          <div class="input-group">
+            <label>Location / Remote Mode</label>
+            <input type="text" id="scraperLocationInput" placeholder="e.g. Remote, Paris, Copenhagen" value="Remote / Paris">
+          </div>
+          <div class="input-group">
+            <label>Search Portal</label>
+            <select id="scraperPortalSelect">
+              <option value="LinkedIn">LinkedIn (Global Search)</option>
+              <option value="Freehire" selected>Freehire (50+ ATS Aggregator)</option>
+              <option value="Jobindex">Jobindex (Denmark Leading)</option>
+              <option value="Jobnet">Jobnet (STAR Public Portal)</option>
+              <option value="Jobbank">Jobbank (Akademikernes)</option>
+            </select>
+          </div>
+          <div class="input-group btn-align">
+            <button class="btn btn-primary" id="btnRunScraper">
+              <span>🚀 Query Portal Agent</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scraper Results -->
+      <div class="results-header">
+        <span class="results-count" id="scraperResultsCount">5 Live Openings Found</span>
+        <div class="results-legend">
+          <span class="legend-item"><span class="legend-dot green"></span> High Match (>85%)</span>
+          <span class="legend-item"><span class="legend-dot blue"></span> Good Match (70-85%)</span>
+        </div>
+      </div>
+
+      <div class="jobs-grid" id="scraperJobsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 3: FIT EVALUATOR & DRAFTER -->
+    <section id="tab-evaluator" class="tab-content">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">AI Fit Evaluator & LaTeX Application Drafter</h2>
+          <p class="section-desc">Dual-gate qualification analysis, match percentage, and targeted LaTeX document synthesis.</p>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <!-- Input Form -->
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Job Opportunity Parameters</h3>
+            <span class="status-badge status-live">Live Evaluation</span>
+          </div>
+
+          <div class="input-group">
+            <label>Company Name</label>
+            <input type="text" id="evalCompanyInput" value="Stripe" placeholder="e.g. Stripe, Vercel, Datadog">
+          </div>
+
+          <div class="input-group">
+            <label>Job Title</label>
+            <input type="text" id="evalTitleInput" value="Staff / Senior Full Stack Software Engineer" placeholder="e.g. Senior Software Engineer">
+          </div>
+
+          <div class="input-group">
+            <label>Job Description & Key Requirements</label>
+            <textarea id="evalDescInput" rows="7" placeholder="Paste the full job posting text or description here...">We are looking for an exceptional Senior Full Stack Software Engineer to build resilient distributed services and delightful user interfaces.
+Key Responsibilities:
+- Design, scale, and maintain high-volume web applications using TypeScript, React, and Node.js.
+- Architect clean REST and streaming APIs backed by PostgreSQL and distributed caching.
+- Build automated testing, CI/CD pipelines, and agentic workflows to increase developer velocity.
+Requirements:
+- 5+ years of software engineering experience with JavaScript/TypeScript, Python, and cloud infrastructure.
+- Strong focus on clean code, test-driven development, and collaborative system design.</textarea>
+          </div>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="btnEvaluateJob">
+              <span>⚡ Run Fit Evaluation</span>
+            </button>
+            <button class="btn btn-secondary" id="btnDraftDocs">
+              <span>📝 Draft LaTeX CV & Cover Letter</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Evaluation Results & Score -->
+        <div class="glass-panel" id="evalResultsPanel">
+          <div class="panel-header">
+            <h3 class="panel-title">Fit Assessment Breakdown</h3>
+            <span class="score-badge" id="evalScoreBadge">94% MATCH</span>
+          </div>
+
+          <!-- Gates -->
+          <div class="gate-status-box">
+            <div class="gate-item">
+              <span class="gate-icon">✅</span>
+              <div>
+                <strong>Language Gate:</strong>
+                <span id="gateLangText">Passed (EN / FR confirmed)</span>
+              </div>
+            </div>
+            <div class="gate-item">
+              <span class="gate-icon">✅</span>
+              <div>
+                <strong>Dealbreaker Gate:</strong>
+                <span id="gateDealText">Passed (No hard constraints violated)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="eval-block">
+            <h4 class="block-title">Key Match Strengths</h4>
+            <ul class="eval-list" id="evalStrengthsList">
+              <li>Direct mastery of TypeScript, React, Node.js, and distributed PostgreSQL.</li>
+              <li>Strong architectural experience scaling web platforms and developer tooling.</li>
+              <li>Proven track record in automated testing and CI/CD pipelines.</li>
+            </ul>
+          </div>
+
+          <div class="eval-block">
+            <h4 class="block-title">Identified Gaps & Tactics</h4>
+            <ul class="eval-list warning" id="evalGapsList">
+              <li>Highlight specific metrics around latency reduction and user scale in the CV header.</li>
+              <li>Emphasize experience with financial-grade security or compliance in the cover letter.</li>
+            </ul>
+          </div>
+
+          <div class="eval-recommendation-box" id="evalRecBox">
+            <strong>Agent Recommendation:</strong>
+            <p id="evalRecText">HIGH FIT — Proceed directly to generating tailored application documents and record in pipeline tracker.</p>
+          </div>
+
+          <button class="btn btn-success full-width" id="btnSaveToTrackerFromEval">
+            <span>➕ Save Directly to Application Tracker</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- LaTeX & Cover Letter Preview Drawer -->
+      <div class="glass-panel mt-4" id="documentsPreviewArea" style="display: none;">
+        <div class="panel-header">
+          <div class="tab-pills">
+            <button class="pill-btn active" id="tabShowCv">LaTeX ModernCV Code</button>
+            <button class="pill-btn" id="tabShowCover">Tailored Cover Letter</button>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btnCopyDocument">
+            <span>📋 Copy to Clipboard</span>
+          </button>
+        </div>
+        <pre class="code-display" id="documentCodeDisplay"></pre>
+      </div>
+    </section>
+
+    <!-- TAB 4: APPLICATION TRACKER & KANBAN -->
+    <section id="tab-tracker" class="tab-content">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">Application Pipeline & Funnel Metrics</h2>
+          <p class="section-desc">Synchronized directly with <code>job_search_tracker.csv</code> and <code>/html-report</code> specifications.</p>
+        </div>
+        <button class="btn btn-primary" id="btnOpenAddModal">
+          <span>➕ Add Application</span>
+        </button>
+      </div>
+
+      <!-- Funnel Metrics Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-num gradient-cyan" id="metricTotal">0</div>
+          <div class="metric-label">Total Tracked</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num gradient-blue" id="metricDrafted">0</div>
+          <div class="metric-label">Drafted</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num gradient-purple" id="metricApplied">0</div>
+          <div class="metric-label">Active / Applied</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num gradient-green" id="metricInterview">0</div>
+          <div class="metric-label">Interviews</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num gradient-yellow" id="metricOffer">0</div>
+          <div class="metric-label">Offers</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num gradient-emerald" id="metricConversion">0%</div>
+          <div class="metric-label">Screen-to-Interview</div>
+        </div>
+      </div>
+
+      <!-- Kanban Pipeline Columns -->
+      <div class="kanban-board">
+        <!-- Drafted -->
+        <div class="kanban-col">
+          <div class="col-header">
+            <span class="col-title">Drafted</span>
+            <span class="col-count" id="colCountDrafted">0</span>
+          </div>
+          <div class="col-cards" id="colCardsDrafted"></div>
+        </div>
+
+        <!-- Applied -->
+        <div class="kanban-col">
+          <div class="col-header">
+            <span class="col-title">Applied</span>
+            <span class="col-count" id="colCountApplied">0</span>
+          </div>
+          <div class="col-cards" id="colCardsApplied"></div>
+        </div>
+
+        <!-- Interview -->
+        <div class="kanban-col">
+          <div class="col-header">
+            <span class="col-title">Interview Stage</span>
+            <span class="col-count" id="colCountInterview">0</span>
+          </div>
+          <div class="col-cards" id="colCardsInterview"></div>
+        </div>
+
+        <!-- Offer / Hired -->
+        <div class="kanban-col">
+          <div class="col-header">
+            <span class="col-title">Offer & Hired</span>
+            <span class="col-count" id="colCountOffer">0</span>
+          </div>
+          <div class="col-cards" id="colCardsOffer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CANDIDATE PROFILE CENTER -->
+    <section id="tab-profile" class="tab-content">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">Candidate Profile & Ground Truth</h2>
+          <p class="section-desc">The single source of truth defined in <code>CLAUDE.md</code> that powers all agent evaluations.</p>
+        </div>
+        <span class="chip chip-green">Thin-Pointer Ground Truth</span>
+      </div>
+
+      <div class="grid-2col">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Identity & Role Positioning</h3>
+          </div>
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="profName" value="Amine Candidate">
+          </div>
+          <div class="input-group">
+            <label>Professional Headline</label>
+            <input type="text" id="profHeadline" value="Senior Full Stack & AI Systems Developer">
+          </div>
+          <div class="input-group">
+            <label>Location & Work Modality</label>
+            <input type="text" id="profLocation" value="Paris, France (Remote / Hybrid Europe)">
+          </div>
+          <div class="input-group">
+            <label>Languages & Proficiency</label>
+            <div class="tags-container">
+              <span class="skill-tag">French (Native)</span>
+              <span class="skill-tag">English (Professional Working Proficiency)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Technical Taxonomy & Constraints</h3>
+          </div>
+          <div class="input-group">
+            <label>Primary Technical Stack</label>
+            <div class="tags-container" id="profPrimarySkills">
+              <span class="skill-tag skill-cyan">TypeScript</span>
+              <span class="skill-tag skill-cyan">React / Next.js</span>
+              <span class="skill-tag skill-cyan">Node.js / Express</span>
+              <span class="skill-tag skill-cyan">Python / FastAPI</span>
+              <span class="skill-tag skill-cyan">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Secondary & Architecture Stack</label>
+            <div class="tags-container" id="profSecondarySkills">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS Cloud</span>
+              <span class="skill-tag">CI/CD Pipelines</span>
+              <span class="skill-tag">LLM Agents</span>
+              <span class="skill-tag">System Design</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Hard Deal-Breakers (Language & Commute Gates)</label>
+            <ul class="dealbreakers-list">
+              <li>🚫 Daily on-site commute > 1.5 hours</li>
+              <li>🚫 Unclear compensation or compensation below market benchmarks</li>
+              <li>🚫 Legacy codebases without authorized modernization budgets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: STAR INTERVIEW COACH -->
+    <section id="tab-interview" class="tab-content">
+      <div class="section-intro">
+        <div>
+          <h2 class="section-title">STAR Method Interview Simulator</h2>
+          <p class="section-desc">Prepare behavioral talking points, technical deep dives, and reverse interviewer questions.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel">
+        <div class="search-inputs-grid">
+          <div class="input-group">
+            <label>Target Company</label>
+            <input type="text" id="coachCompanyInput" value="Datadog" placeholder="e.g. Datadog, Spotify, Vercel">
+          </div>
+          <div class="input-group">
+            <label>Position</label>
+            <input type="text" id="coachRoleInput" value="Senior Platform / AI Engineer" placeholder="e.g. Senior Software Engineer">
+          </div>
+          <div class="input-group btn-align">
+            <button class="btn btn-primary" id="btnGenerateInterviewPrep">
+              <span>🎯 Generate STAR Prep</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="interview-prep-results" id="interviewPrepOutput">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Add Application Modal -->
+  <div class="modal-backdrop" id="addAppModal" style="display: none;">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Track New Job Application</h3>
+        <button class="modal-close" id="btnCloseAddModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <label>Company Name</label>
+          <input type="text" id="modalCompany" placeholder="e.g. Vercel">
+        </div>
+        <div class="input-group">
+          <label>Role Title</label>
+          <input type="text" id="modalRole" placeholder="e.g. Senior Full Stack Engineer">
+        </div>
+        <div class="input-group">
+          <label>Sector</label>
+          <input type="text" id="modalSector" placeholder="e.g. Cloud Infrastructure">
+        </div>
+        <div class="input-group">
+          <label>Status</label>
+          <select id="modalStatus">
+            <option value="drafted">Drafted</option>
+            <option value="applied" selected>Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="hired">Hired</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Fit Rating (1-5)</label>
+          <input type="number" id="modalFit" min="1" max="5" value="5">
+        </div>
+        <div class="input-group">
+          <label>Notes</label>
+          <textarea id="modalNotes" rows="3" placeholder="Key details, interview stages, or dates..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelAddModal">Cancel</button>
+        <button class="btn btn-primary" id="btnSubmitAddModal">Save to Pipeline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

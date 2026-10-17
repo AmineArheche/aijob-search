@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Amine Arheche
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Amine Arheche, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,79 +10,69 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Amine Arheche
+- **Location:** Atlas Rue Sebta, Fès, Maroc (Ouvert au télétravail / Remote et mobilité Maroc / France)
+- **Phone:** +212 720819047
+- **Email:** Aminearheche@gmail.com
+- **Age:** 21 ans
+- **Nationality:** Marocaine
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | Français | B2 |
+  | Anglais | B2 |
+  | Arabe | Natif |
+- **CV language:** Français (et Anglais selon l'offre)
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Développeur Full-Stack en recherche active & Freelance
+- **LinkedIn headline:** "Développeur Web Full Stack | Développeur Digital"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
-
-### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
-
-### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Diplôme de Technicien Spécialisé (DTS) en Développement Digital** (2023-2025) - ISTA Ifrane
+  - Topics: Développement web frontend et backend, bases de données, architectures web
+- **Baccalauréat Science Physique** (2023) - Lycée Mohammed VI, Imouzzer Kandar
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Certificat en Python Essentials** - CISCO (Octobre 2025)
 
-### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+### Professional Experience
+- **Développeur Full-stack** (15 Juillet 2025 - 30 Juillet 2025 puis 15 Juillet 2026 - en cours) - **Freelance - Remote**
+  - Participation à la conception et à l'implémentation de fonctionnalités clés pour les produits logiciels de clients.
+  - Développement et intégration de fonctionnalités applicatives web sur mesure.
+- **Développeur Full-stack (Stage)** (24 Avril 2025 - 24 Mai 2025) - **Entreprise spécialisée dans l'énergie solaire** (Imouzzer-Kandar, Maroc)
+  - Stage en développement Web Full Stack au sein d'une entreprise dans le domaine de l'énergie solaire.
+  - Contribution au développement d'une plateforme e-commerce.
+- **Conseiller Clientèle / Service Client** (1 Octobre 2025 - Juillet 2026) - **Concentrix** (Maroc)
+  - Assistance des clients et résolution de problèmes techniques.
+  - Traitement des réclamations, support technique et maintien d'un haut niveau de satisfaction client.
 
-### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+### Technical Skills
+- **Primary:** Langages de programmation, Développement web frontend et backend, Python
+- **Secondary:** Conception et architecture de logiciels, Algorithmique et structures de données
+- **Domain:** E-commerce, Énergie solaire, Assistance technique, Service client, Relation client
+- **Software:** Outils informatiques, Logiciels CRM, Outils de ticketing et support client
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Capacité d’adaptation :** Polyvalent, passage aisé des aspects techniques au relationnel client
+- **Communication bilingue :** Bonne communication écrite et orale en français et en anglais
+- **Strengths:** Résolution méthodique de problèmes, sens aigu du service client, rigueur technique
+- **Growth areas:** Approfondissement des architectures distribuées et frameworks d'entreprise avancés
+- **Thrives in:** Environnements collaboratifs, projets web challengeants, équipes techniques dynamiques
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Codage créatif : Exploration de projets personnels pour repousser les limites de la programmation
+- Musique : Jouer des instruments et explorer une grande diversité de genres musicaux
+- Nouvelles technologies et plateformes web modernes
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Développement Web & Logiciel (Agences, E-commerce, Startups, Entreprises de services numériques)
+- Support technique & Ingénierie des solutions web
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Télétravail 0 jour (souhait de flexibilité hybride ou full remote)
+- Déplacements > 30%
+- Postes sans transparence sur la rémunération ou sans opportunité de montée en compétences techniques
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

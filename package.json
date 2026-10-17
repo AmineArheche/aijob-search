@@ -1,0 +1,19 @@
+{
+  "name": "ai-job-search-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive Multi-Agent Architecture Dashboard & Job Search Control Center",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "job-search",
+    "dashboard",
+    "architecture"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

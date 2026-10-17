@@ -4,70 +4,75 @@ framework_version: 1.1.1
 
 # Candidate Profile
 
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all sections will be filled with your actual information -->
-
 ## Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_ADDRESS]
-- **Phone:** [YOUR_PHONE]
-- **Email:** [YOUR_EMAIL]
-- **LinkedIn:** [YOUR_LINKEDIN_URL]
-- **GitHub:** [YOUR_GITHUB_URL]
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **Constraints:** [YOUR_COMMUTE_OR_LOCATION_CONSTRAINTS]
+- **Name:** Amine Arheche
+- **Location:** Atlas Rue Sebta, Fès, Maroc
+- **Phone:** +212 720819047
+- **Email:** Aminearheche@gmail.com
+- **LinkedIn:** [À renseigner]
+- **GitHub:** [À renseigner]
+- **Status:** En recherche active & Freelance
+- **Constraints:** Ouvert au télétravail (remote), hybride ou présentiel (Maroc / France)
 
 ### Languages
-<!-- Every language you can work in professionally, with your honest level. Used by the
-Language Gate in 04-job-evaluation.md and by job-scraper/search-queries.md's query-language
-generation. Omit any language you don't actually work in - an undeclared language is treated as
-a hard no, not a gap to smooth over. -->
-
 | Language | Level | Notes |
 |----------|-------|-------|
-| [LANGUAGE] | [LEVEL, e.g. "Native" / "C2" / "B1/B2 (conversational)"] | [optional] |
+| Français | B2 | Professionnel |
+| Anglais | B2 | Professionnel |
+| Arabe | Natif | Langue maternelle |
 
 ## Education
 
 | Degree | Period | Institution | Key Topics |
 |--------|--------|-------------|------------|
-| [DEGREE] | [YEARS] | [INSTITUTION] | [TOPICS] |
+| Diplôme de Technicien Spécialisé (DTS) en Développement Digital | 2023 - 2025 | ISTA Ifrane | Développement web frontend et backend, bases de données, architectures applicatives |
+| Certificat en Python Essentials | Octobre 2025 | CISCO | Algorithmique, syntaxe et fondamentaux Python |
+| Baccalauréat Science Physique | 2023 | Lycée Mohammed VI, Imouzzer Kandar | Sciences physiques, mathématiques |
 
 ## Professional Experience
 
-### [JOB_TITLE] - [COMPANY] ([START] - [END])
-[LOCATION]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_1]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_2]
-- [RESPONSIBILITY_OR_ACHIEVEMENT_3]
+### Développeur Full-stack - Freelance (15 Juillet 2025 - 30 Juillet 2025 puis 15 Juillet 2026 - en cours)
+Remote
+- Participation à la conception et à l'implémentation de fonctionnalités clés pour les produits logiciels de clients.
+- Conception d'architectures web et développement de fonctionnalités frontend et backend.
 
-<!-- Add more roles as needed -->
+### Développeur Full-stack (Stage) - Entreprise spécialisée en énergie solaire (24 Avril 2025 - 24 Mai 2025)
+Imouzzer-Kandar, Maroc
+- Stage en développement Web Full Stack.
+- Contribution au développement d'une plateforme e-commerce.
+
+### Conseiller Clientèle / Service Client - Concentrix (1 Octobre 2025 - Juillet 2026)
+Maroc
+- Assistance des clients et résolution de problèmes techniques.
+- Traitement des réclamations, support technique et maintien d'un haut niveau de satisfaction client.
 
 ## Independent Projects
-<!-- Projects outside of employment: freelance, open source, personal -->
-- **[PROJECT_NAME]**: [DESCRIPTION]
+- **Codage créatif** : Exploration de projets personnels pour repousser les limites de la programmation.
+- **Plateforme e-commerce énergie solaire** : Développement des parcours d'achat et interfaces utilisateurs.
 
 ## Technical Skills
 
-### Programming & ML
-- **[LANGUAGE]** ([PROFICIENCY]): [FRAMEWORKS_AND_LIBRARIES]
-- [OTHER_SKILLS]
+### Programming & Web Development
+- **Langages de programmation** : Frontend et backend
+- **Python** (Intermédiaire) : Certifié CISCO Python Essentials
+- **Développement Web** : Conception d'interfaces, APIs, bases de données
 
 ### Domain Expertise
-- [DOMAIN_1]
-- [DOMAIN_2]
+- Conception et architecture de logiciels
+- Service client et assistance technique
+- E-commerce & Énergie solaire
 
 ### Software & Tools
-- [TOOL_LIST]
+- Outils informatiques et bureautiques
+- Outils CRM et gestion de la relation client
 
 ## Publications
 <!-- List peer-reviewed publications, if any -->
-1. [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL]. [DOI_LINK]
+- Néant à ce jour.
 
 ## Awards
-- [AWARD] - [EVENT] ([YEAR])
+- Néant à ce jour.
 
 ## References
-- [NAME], [TITLE], [COMPANY] ([EMAIL], [PHONE])
+- Disponibles sur demande.
 
-More references available upon request.
