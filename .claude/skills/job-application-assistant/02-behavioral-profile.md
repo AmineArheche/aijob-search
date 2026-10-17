@@ -1,54 +1,50 @@
 ---
-framework_version: 1.0.0
+framework_version: 1.0.1
 ---
 
 # Behavioral Profile
 
-<!-- SETUP: This file is populated by running /setup -->
-<!-- You can use results from PI, DISC, Myers-Briggs, StrengthsFinder, or a self-assessment -->
-
 ## Overview
-[YOUR_NAME]'s behavioral assessment identifies them as a **[PROFILE_TYPE]** pattern. [1-2 SENTENCE_SUMMARY].
+Amine Arheche's profile combines analytical technical rigor with strong relational intelligence and customer empathy. He transitions naturally between deep-focus software engineering (frontend, backend, architecture) and high-touch customer support / technical problem-solving.
 
 ## Core Behavioral Drives
 
 | Drive | Level | Meaning |
 |-------|-------|---------|
-| [DRIVE_1] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_2] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_3] | [LEVEL] | [DESCRIPTION] |
-| [DRIVE_4] | [LEVEL] | [DESCRIPTION] |
+| Problem Solving & Analytical Drive | High | Methodical diagnosis of bugs and customer issues; focused on root cause analysis |
+| Empathy & Customer Service | High | Active listening, patience with non-technical users, de-escalation of complaints |
+| Adaptability & Learning Velocity | High | Fast learner (certified in Python Essentials, DTS digital graduate, self-directed creative coding) |
+| Collaborative Communication | High | Fluent bilingual exchange (French B2, English B2, Arabic Native); clear verbal and written articulation |
 
 ## Strongest Behaviors
-- **[BEHAVIOR_1]:** [DESCRIPTION]
-- **[BEHAVIOR_2]:** [DESCRIPTION]
-- **[BEHAVIOR_3]:** [DESCRIPTION]
+- **Structured Troubleshooting:** Breaking down complex web issues or user incidents into verifiable steps.
+- **Service-Oriented Mindset:** Proven at Concentrix in maintaining high customer satisfaction ratings under SLAs.
+- **Autonomy & Initiative:** Experience delivering independently in freelance remote contracts and staging environments.
 
 ## How You Work Best
-- [ENVIRONMENT_PREFERENCE_1]
-- [ENVIRONMENT_PREFERENCE_2]
-- [ENVIRONMENT_PREFERENCE_3]
+- Collaborative teams with clear communication and open feedback loops.
+- Flexible work environments (remote or hybrid) with modern developer tooling.
+- Roles where technical problem solving directly benefits users and business clients.
 
 ## Growth Areas (frame positively in applications)
-- **[AREA_1]:** [HOW_TO_FRAME_IT_POSITIVELY]
-- **[AREA_2]:** [HOW_TO_FRAME_IT_POSITIVELY]
+- **High-Scale System Architecture:** Solid grasp of web fundamentals; eager to deepen experience with massive multi-region distributed microservices.
+- **Enterprise Project Ownership:** Proactive ownership of feature lifecycles with continuous agile mentoring.
 
 ## Mapping to Job Posting Language
 
 When a job posting mentions these keywords, it's a **strong behavioral fit**:
-- [KEYWORD_OR_PHRASE_THAT_MATCHES_YOUR_STYLE]
-- [ANOTHER_KEYWORD]
+- "Sens du service client", "Résolution de problèmes", "Aisance relationnelle"
+- "Développeur autonome", "Esprit d'équipe", "Support technique", "Bilingue FR/EN"
+- "Rigueur", "Capacité d'adaptation", "Veille technologique"
 
 When a job posting mentions these, flag as **potential friction** (not deal-breaker):
-- [KEYWORD_OR_PHRASE_THAT_MIGHT_CLASH]
-- [ANOTHER_KEYWORD]
-
-## Management Style Preferences
-- [WHAT_MANAGEMENT_STYLE_WORKS_FOR_YOU]
-- [WHAT_DOESN'T_WORK]
+- "Strictement 100% présentiel sans flexibilité" (clashes with remote/hybrid target)
+- "Déplacements régionaux fréquents > 30%"
+- "Environnements rigides sans outils modernes ou sans documentation"
 
 ## Using This in Applications
-- **Cover letters:** [HOW_TO_WEAVE_IN_BEHAVIORAL_STRENGTHS]
-- **CV:** [WHAT_TO_EMPHASIZE]
-- **Interviews:** [WHAT_STAR_EXAMPLES_TO_USE]
-- **Don't overstate:** [WHAT_NOT_TO_CLAIM]
+- **Cover letters:** Highlight concrete instances combining technical execution (e.g. e-commerce platform) with client-facing problem resolution (Concentrix).
+- **CV:** Emphasize dual capability: clean coding and customer-centric software delivery.
+- **Interviews:** Use STAR examples from freelance client interactions, e-commerce staging, and technical customer support.
+- **Don't overstate:** State skills and language proficiencies (B2 French/English, Native Arabic) accurately and honestly.
+

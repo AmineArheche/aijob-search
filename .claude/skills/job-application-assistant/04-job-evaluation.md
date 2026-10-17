@@ -1,5 +1,5 @@
 ---
-framework_version: 1.2.6
+framework_version: 1.2.7
 ---
 
 # Job Evaluation Framework
@@ -60,9 +60,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Développement web frontend et backend, Python (Certifié CISCO Essentials), Conception et architecture logicielle, E-commerce, Assistance technique et relation client, Communication bilingue FR/EN
+**Moderate match areas:** Outils CRM et ticketing, Frameworks web modernes, Résolution d'incidents informatiques N1/N2
+**Weak match areas:** C/C++, Langages mainframe/legacy sans migration, DevOps d'infrastructure lourde (Kubernetes/Terraform avancés), Ingénierie R&D mathématique pure
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -74,9 +74,9 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Développement Web Full-Stack (Freelance et Stage), Plateforme e-commerce (énergie solaire), Conseiller clientèle & support technique (Concentrix)
+**Moderate:** Intégration web PME, Télésecrétariat technique, Support applicatif N1/N2
+**Entry-level:** Direction de grands départements IT, Encadrement d'équipes d'ingénieurs seniors
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -91,35 +91,35 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
-- Frequent international travel: FLAG (discuss with user)
+- Télétravail / Remote (Maroc ou International) : PASS
+- Hybride ou Présentiel sur Fès : PASS
+- Présentiel 100% imposé hors de Fès sans télétravail ni aide à la mobilité : FAIL (Deal-breaker)
+- Déplacements professionnels > 30% : FAIL (Deal-breaker)
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
 
 | Score | Meaning |
 |-------|---------|
-| 80-100 | Strongly aligned with career direction, clear growth path |
-| 60-79 | Good role but only partially aligned with long-term goals |
-| 40-59 | Decent job but doesn't build toward career goals |
-| 0-39 | Dead end or backwards step |
+| 80-100 | Strongly aligned with web development, digital platforms, or customer support engineering |
+| 60-79 | Good role with learning opportunities and clear stability |
+| 40-59 | Repetitive task without clear progression path |
+| 0-39 | Backward career step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Évoluer en tant que Développeur Web Full-Stack confirmé et maîtriser les architectures applicatives modernes
+- Décrocher des opportunités valorisantes (CDI pérenne ou contrats freelance récurrents)
+- Capitaliser sur la synergie entre rigueur technique de développement et excellence de la relation client bilingue
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize: Développement de nouvelles fonctionnalités web, résolution de bugs complexes, conception d'architectures claires, assistance technique efficace
+- Tasks that drain: Tâches administratives manuelles sans automatisation, saisie répétitive sans valeur ajoutée, maintenance de code obsolète sans documentation
+- Non-task factors: culture d'entraide, clarté des objectifs, flexibilité horaire et respect du travail
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Recherche de stabilité financière et transparence contractuelle
+- **Flexibility**: Préférence marquée pour le télétravail / remote ou hybride
+- **Professional development**: Volonté d'apprentissage continu et de veille technologique active
 
 ### 6. Salary Benchmark (Optional)
 

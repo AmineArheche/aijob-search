@@ -1,5 +1,5 @@
 ---
-framework_version: 1.2.0
+framework_version: 1.2.1
 ---
 
 # Writing Style Guide
@@ -87,24 +87,28 @@ The cover letter is **not a CV repetition**. It should be forward-looking:
 
 ## Language for Different Role Types
 
-### Technical/ML roles
-- Lead with programming languages, ML frameworks, specific model architectures
-- Mention datasets, data volumes, pipeline complexity
-- Include independent projects
+### Technical & Full-Stack Web Development Roles
+- Lead with programming languages (JavaScript/TypeScript, Python), frontend/backend architectures, APIs, e-commerce integration.
+- Mention real achievements (e.g. contribution to e-commerce platform in solar energy, freelance client deliverables).
+- Emphasize clean code, debugging methodology, and creative coding exploration.
 
-### Domain-specific roles
-- Lead with domain expertise and specific methods
-- Frame technical skills as tools that enhance domain analysis
+### Technical Support & Call Center / Customer Care Roles
+- Lead with problem diagnosis, active listening, ticket resolution, and adherence to customer satisfaction SLAs.
+- Emphasize bilingual fluency (French B2, English B2, Native Arabic) and clear, structured communication.
+- Highlight experience at Concentrix in handling customer complaints and technical troubleshooting.
 
-### Consulting/Advisory roles
-- Lead with stakeholder communication, project coordination, client interaction
-- Emphasize ability to bridge technical and business perspectives
+### Freelance & Remote Technical Roles
+- Emphasize autonomy, reliable asynchronous communication, and rapid turnaround on client deliverables.
 
-### Leadership/Senior roles
-- Lead with project management, mentoring, course development
-- Frame advanced degrees as evidence of independent project delivery
+## Multi-language Applications (French, English, Arabic)
+- **Automatic Language Detection:** Match the language of the job posting (French, English, or Arabic).
+- **French Conventions (Morocco / France):**
+  - Opening: "Madame, Monsieur," (or "Chère équipe de recrutement," for modern startups/remote teams).
+  - Polite, professional and assertive tone: "Je vous adresse ma candidature avec un vif intérêt pour le poste de..."
+  - Closing formula: "Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."
+  - Prohibit stilted archaic formulas; maintain direct, modern professional style.
+- **English Conventions:**
+  - Standard UK/US professional cover letter structure: direct opening, value proposition, forward-looking fit, professional sign-off ("Sincerely," / "Warm regards,").
+- **Arabic Conventions (when posting is in Arabic):**
+  - Classical, respectful and modern business Arabic: "تحية طيبة وبعد،"، "يسرني أن أتقدم بترشيحي لشغل منصب..."
 
-## Multi-language Applications
-- Default to the language of the job posting
-- Cover letters in the posting's language should feel natural, not translated
-- Slightly warmer, more personal tone may be acceptable in some languages

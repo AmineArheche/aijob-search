@@ -12,69 +12,56 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary (Job boards Maroc & Remote):
+- **rekrute.com** - Portale d'emploi cadres et IT au Maroc
+- **emploi.ma** - Portail national marocain
+- **moncallcenter.ma** - Portail leader pour les centres d'appels et le support client technique au Maroc
+- **marocannonces.com** - Offres d'emploi directes au Maroc
+- **optioncarriere.ma** - Moteur de recherche d'emploi au Maroc
+- **freehire.me** - Agrégateur international d'offres tech en télétravail (remote)
+- **linkedin.com/jobs** - Filtres: Maroc / Fès / Remote
 
-Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+Secondary (Company career pages & Freelance platforms):
+- Plateformes freelance : Upwork, Malt, ComeUp, Mostaql
+- Recherche Google ciblée avec filtres `site:` pour entreprises locales et internationales
 
 ## Query Categories
 
-Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
-
-**Organize by function, not job title.** The same underlying work carries different titles across companies and markets (a "Data Scientist" role at one employer may be posted as "Insights Analyst" or "Data Consultant" at another). Name each priority category after the function it covers, and list several plausible job titles as query variants within that category rather than betting an entire priority tier on one exact title string.
-
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
-
-These match your strongest and most desired career direction.
-
+### Priority 1: Développeur Web Full-Stack / Développeur Web (Maroc & Remote)
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_2]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_COUNTRY]
+site:rekrute.com "Développeur Web" OR "Full Stack"
+site:emploi.ma "developpeur web" OR "python"
+site:linkedin.com/jobs "Full Stack Developer" Maroc OR Remote
+site:freehire.me "Full Stack" OR "Web Developer"
+site:optioncarriere.ma "développeur full stack" Fès OR "Télétravail"
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
-
+### Priority 2: Conseiller Clientèle Technique & Support Informatique (Call Center / BPO)
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:moncallcenter.ma "support technique" OR "bilingue" Fès
+site:rekrute.com "conseiller technique" OR "support client"
+site:emploi.ma "support informatique" OR "helpdesk"
+site:linkedin.com/jobs "Customer Support Technical" Maroc
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Adjacent roles you could pivot into.
-
+### Priority 3: Développeur E-commerce & Intégrateur Web
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:emploi.ma "e-commerce" OR "prestashop" OR "wordpress"
+site:rekrute.com "developpeur e-commerce"
+site:optioncarriere.ma "intégrateur web"
 ```
 
-### Priority 4: Broader Technical / Consulting
-
-Wider net for general technical roles.
-
+### Priority 4: Freelance & Télétravail (Missions à distance)
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "développeur freelance" "remote"
+site:emploi.ma "freelance" OR "télétravail" informatique
+site:freehire.me "python developer" remote
 ```
 
 ## Location Filter
-
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+- **Fès et agglomération** : Présentiel, hybride ou télétravail (idéal).
+- **Tout le Maroc / International** : Télétravail / Full Remote uniquement.
+- **Hors de Fès sans télétravail** : À écarter (deal-breaker de mobilité non couverte).
 
 ## Language Filter
 
