@@ -42,6 +42,10 @@ When a job posting mentions these, flag as **potential friction** (not deal-brea
 - "Déplacements régionaux fréquents > 30%"
 - "Environnements rigides sans outils modernes ou sans documentation"
 
+## Management Style Preferences
+- **Ce qui fonctionne :** Management responsabilisant, objectifs clairs, communication transparente et bienveillante, autonomie encouragée.
+- **Ce qui ne fonctionne pas :** Micromanagement excessif, absence d'écoute ou de processus documentés.
+
 ## Using This in Applications
 - **Cover letters:** Highlight concrete instances combining technical execution (e.g. e-commerce platform) with client-facing problem resolution (Concentrix).
 - **CV:** Emphasize dual capability: clean coding and customer-centric software delivery.
