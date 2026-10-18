@@ -312,67 +312,70 @@ function getAgentsList() {
 }
 
 // Simulated scraper query
+function loadSeenJobs() {
+  const seenPath = path.join(ROOT_DIR, 'job_scraper', 'seen_jobs.json');
+  if (fs.existsSync(seenPath)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(seenPath, 'utf8'));
+      const list = Object.values(data.seen || {});
+      return list.map(j => ({
+        title: j.title || 'Poste',
+        company: j.company || 'Entreprise',
+        location: j.location || 'Fès / Maroc',
+        portal: j.portal || 'rekrute-search',
+        type: 'Full-time',
+        salary: 'Grille entreprise / Marché',
+        matchScore: j.rank_score || 75,
+        verdict: j.rank_verdict || 'Good Fit',
+        locationVerdict: j.location_verdict || 'PASS',
+        tags: [(j.location || 'Fès'), (j.portal || 'ReKrute'), (j.rank_verdict || 'Fit')],
+        description: (j.strengths || []).join(' • ') + (j.gaps ? ' | ' + j.gaps.join(' • ') : ''),
+        link: j.url || '#'
+      }));
+    } catch (e) {}
+  }
+  return [];
+}
+
+// Simulated scraper query
 function simulateJobSearch(query, portal, location) {
-  const jobsPool = [
+  const realJobs = loadSeenJobs();
+  const jobsPool = realJobs.length > 0 ? realJobs : [
     {
-      title: 'Senior Full Stack Engineer (React, Node, AI Tooling)',
-      company: 'CognitiveScale',
-      location: location || 'Remote / Hybrid',
-      portal: portal || 'LinkedIn',
+      title: 'Développeur Python IA',
+      company: 'ALTEN MAROC',
+      location: 'Fes (Maroc)',
+      portal: 'rekrute-search',
       type: 'Full-time',
-      salary: '€75,000 - €95,000',
-      matchScore: 94,
-      tags: ['TypeScript', 'React', 'Node.js', 'LLM APIs', 'PostgreSQL'],
-      description: 'We are seeking an experienced Full Stack Engineer to lead our developer platform team. You will build user-facing workflows and real-time agentic tools using modern React, TypeScript, and microservices.',
-      link: 'https://linkedin.com/jobs/view/sample-101'
+      salary: 'Selon grille Fès',
+      matchScore: 87,
+      tags: ['Python', 'IA', 'CISCO Certified', 'Fès'],
+      description: 'Développement de solutions d’IA en Python, pipelines de données Azure et modèles ML/DL.',
+      link: 'https://www.rekrute.com/offre-emploi-developpeur-python-ia-recrutement-alten-maroc-fes-187569.html'
     },
     {
-      title: 'AI Platform & Cloud Software Engineer',
-      company: 'Synthetix Systems',
-      location: location || 'Remote Europe / Paris',
-      portal: portal || 'Freehire',
+      title: 'Chargé(e) de support comptabilité & paiements – 100 % remote',
+      company: 'ALKIMIY',
+      location: '100% Remote (Maroc)',
+      portal: 'rekrute-search',
       type: 'Full-time',
-      salary: '€80,000 - €105,000',
-      matchScore: 91,
-      tags: ['Python', 'FastAPI', 'Docker', 'AWS', 'Agent Systems'],
-      description: 'Join our core platform group developing high-throughput AI inference pipelines and API orchestrations. Strong experience in Python, microservices architecture, and automated cloud deployments required.',
-      link: 'https://freehire.me/job/sample-202'
+      salary: 'Remote',
+      matchScore: 83,
+      tags: ['Support', 'Paiements', 'Stripe', 'Remote'],
+      description: 'Point de référence sur les encaissements, incidents de paiement et réconciliation.',
+      link: 'https://www.rekrute.com/offre-emploi-chargee-de-suivi-des-paiements-et-support-comptabilite-100-remote-recrutement-alkimiy-casablanca-187632.html'
     },
     {
-      title: 'Lead Frontend Architect (Next.js & Design Systems)',
-      company: 'Aether Cloud',
-      location: location || 'Paris / Hybrid',
-      portal: portal || 'LinkedIn',
+      title: 'Support N2 Multimédia',
+      company: 'ALTEN MAROC',
+      location: 'Fes (Maroc)',
+      portal: 'rekrute-search',
       type: 'Full-time',
-      salary: '€70,000 - €90,000',
-      matchScore: 88,
-      tags: ['Next.js', 'TypeScript', 'CSS3 / UI/UX', 'Performance'],
-      description: 'Responsible for leading the design and implementation of next-generation enterprise dashboards with extreme visual appeal, micro-animations, and low latency state management.',
-      link: 'https://linkedin.com/jobs/view/sample-303'
-    },
-    {
-      title: 'Senior Backend Engineer - Data & Distributed Systems',
-      company: 'Nordic Stream Analytics',
-      location: location || 'Copenhagen / Remote',
-      portal: portal || 'Jobindex',
-      type: 'Full-time',
-      salary: '65.000 - 78.000 DKK/mo',
-      matchScore: 85,
-      tags: ['Go / Python', 'PostgreSQL', 'Kafka', 'Distributed Systems'],
-      description: 'Design robust, resilient pipelines for processing millions of telemetry events daily. Collaborate closely with product and data science teams to deliver ultra-scalable backend services.',
-      link: 'https://jobindex.dk/jobannonce/sample-404'
-    },
-    {
-      title: 'Solutions & AI Integration Engineer',
-      company: 'Apex Robotics',
-      location: location || 'Hybrid',
-      portal: portal || 'Freehire',
-      type: 'Full-time',
-      salary: '€68,000 - €84,000',
-      matchScore: 82,
-      tags: ['TypeScript', 'Python', 'APIs', 'Docker'],
-      description: 'Bridging internal engineering and client integrations. Build custom connectors, monitor pipeline uptime, and craft automated test suites for continuous verification.',
-      link: 'https://freehire.me/job/sample-505'
+      salary: 'Selon grille Fès',
+      matchScore: 83,
+      tags: ['Support N2', 'SLA', 'Véhicule Connecté', 'Fès'],
+      description: 'Coordination de la résolution des incidents sous SLA et gestion documentaire.',
+      link: 'https://www.rekrute.com/offre-emploi-support-n2-multimedia-recrutement-alten-maroc-fes-187608.html'
     }
   ];
 
@@ -596,6 +599,17 @@ const server = http.createServer((req, res) => {
 
   if (pathname === '/api/tracker' && method === 'GET') {
     return sendJson(200, getTrackerData());
+  }
+
+  if (pathname === '/api/dossiers' && method === 'GET') {
+    const appsLogPath = path.join(ROOT_DIR, 'job_scraper', 'applications_log.json');
+    if (fs.existsSync(appsLogPath)) {
+      try {
+        const appsData = JSON.parse(fs.readFileSync(appsLogPath, 'utf8'));
+        return sendJson(200, appsData);
+      } catch (e) {}
+    }
+    return sendJson(200, { applications: {} });
   }
 
   if (pathname === '/api/tracker' && method === 'POST') {
