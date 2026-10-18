@@ -22,6 +22,10 @@
       "Bash(python3 tools/verify_layout.py:*)",
       "Bash(python tools/gmail_alert_reader.py:*)",
       "Bash(python3 tools/gmail_alert_reader.py:*)",
+      "Bash(python tools/scrape_morocco.py:*)",
+      "Bash(python3 tools/scrape_morocco.py:*)",
+      "Bash(python tools/rank_evaluator.py:*)",
+      "Bash(python3 tools/rank_evaluator.py:*)",
       "Bash(pdftotext:*)"
     ]
   }
