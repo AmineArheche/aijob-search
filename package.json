@@ -1,7 +1,7 @@
 {
   "name": "ai-job-search-dashboard",
   "version": "1.0.0",
-  "description": "Interactive Multi-Agent Architecture Dashboard & Job Search Control Center",
+  "description": "Autonomous AI Job Search Assistant & Control Center for Amine Arheche (Morocco & Remote)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

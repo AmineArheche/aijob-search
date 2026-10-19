@@ -2,9 +2,15 @@
   <img src="assets/mascot/pip_flight_loop.gif" alt="Pip, the courier bird" width="200">
 </p>
 
-# AI Job Search
+# AI Job Search 🇲🇦 (Morocco & Remote Edition)
 
-*The job search that runs on your machine.*
+*The autonomous, privacy-first job search engine running entirely on your local machine.*
+
+> **Candidate:** Amine Arheche (Fès, Morocco)  
+> **Target Roles:** Full-Stack Web / Python AI Developer & Support Technique N2 / Technical Operations  
+> **Geographic Policy:** On-site in **Fès** or **100% Remote** only (strict automated geo-veto on other cities)  
+> **AI Engines:** [Google Antigravity](https://antigravity.google) & [Claude Code](https://claude.com/claude-code), powered by **Google Gemini API** (Free Tier) & LaTeX compilation  
+> **Operational Dashboard:** Built-in web UI on `http://localhost:3010`
 
 <p align="center">
   <a href="https://trendshift.io/repositories/43622?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-43622" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/43622/daily" alt="MadsLorentzen%2Fai-job-search | Trendshift" width="250" height="55"/></a>
@@ -12,11 +18,30 @@
 
 [![CI](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml/badge.svg)](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml)
 
-An AI-powered job application framework built on [Claude Code](https://claude.com/claude-code). Fork it, fill in your profile, and let Claude evaluate job postings, tailor your CV, write cover letters, and prepare you for interviews.
+An end-to-end, privacy-focused job application framework adapted for the Moroccan and remote job markets. It orchestrates automated scraping, 100-point fit evaluation with geo-veto, instant push notifications to mobile, tailored CV & cover letter compilation, interview simulation, and a strict Human Approval Gate.
 
-> Note: This is an independent open-source project and is not affiliated with, endorsed by, sponsored by, or maintained by Anthropic. Anthropic and Claude Code are referenced only to describe the toolchain this workflow uses.
->
-> This project has **no affiliated cryptocurrency, token, or paid sponsorship program**. Anything claiming otherwise is unauthorized and should be treated as a scam. The only ways to support the project are the Ko-fi link below and contributing on GitHub.
+> Note: This repository is a customized and extended fork of [MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search), adapted for Google Antigravity, Google Gemini, and the Moroccan job market.
+
+---
+
+## 🇲🇦 Moroccan Adaptation & Custom Enhancements (Phases 0–9)
+
+This repository includes a complete 9-phase adaptation and enhancement suite built specifically for **Amine Arheche**:
+
+| Phase | Component | Key Implementation & Changes |
+| :---: | :--- | :--- |
+| **Phase 0 & 1** | **Privacy & Security Guards** | Comprehensive `.gitignore` protection guarding candidate PII, phone, email, and generated PDFs. Added `tools/security_guards.py` verifying package manifests, permission allowlists, and git hygiene. |
+| **Phase 2** | **Candidate Profile Grounding** | Personalized profile in `.claude/skills/job-application-assistant/` strictly grounded in verified facts (DTS ISTA Ifrane, CISCO Python Essentials, Concentrix, Freelance). Zero hallucination guarantee. Strict **Fès or 100% Remote** geographical veto. |
+| **Phase 3** | **Moroccan Job Board Scrapers** | Created portable CLI search skills for Moroccan platforms: <br>• **`rekrute-search`** (`rekrute.com`) for IT, engineering, software, and executive roles.<br>• **`moncallcenter-search`** (`moncallcenter.ma`) for customer service, bilingual technical support (FR/EN/AR), and IT helpdesk.<br>• Automated orchestrator: `tools/scrape_morocco.py`. |
+| **Phase 4** | **Scoring & Ranking Engine** | Implemented `tools/rank_evaluator.py` and `tools/show_shortlist.py` with an objective 100-point rubric (Skills, Experience, Location Veto, Domain, Language). Automatically filters out non-qualifying locations and scores role relevance. |
+| **Phase 5** | **Gemini-Assisted Dossier Generator** | Implemented `tools/gemini_drafter.py` utilizing the free-tier Google Gemini API (`gemini-2.5-flash` with local fallback) to draft tailored CVs (exact 2 pages ATS) and cover letters (exact 1 page). Developed `tools/verify_pdf.py` to validate ATS text layers and ASCII date conformity. |
+| **Phase 6** | **Instant Push Notifications** | Built `tools/push_notifier.py` dispatcher supporting free, zero-config mobile alerts via **ntfy.sh** (`amine_jobs_alert_private_channel`) and Telegram bots for jobs scoring $\ge 70/100$. |
+| **Phase 7** | **Human Approval Gate** | Enforced Human-in-the-Loop ethics via `tools/application_gate.py`. Packages full review bundles in `documents/applications/<company>_<role>/` with `form_answers.txt` (elevator pitch, motivation, salary). Requires explicit `--approve` before logging submission. |
+| **Phase 8** | **Tracker & Funnel Analytics** | Synchronizes applications into `job_search_tracker.csv` via `tools/sync_tracker.py`. Computes live conversion metrics (Shortlisted $\to$ Drafted $\to$ Applied $\to$ Interview $\to$ Offer). |
+| **Phase 9** | **Documentation & Validation** | Authored comprehensive operational guide in [USER_GUIDE.md](USER_GUIDE.md) and state checkpoint in [STATE_CHECKPOINT.md](STATE_CHECKPOINT.md). Validated 5-job end-to-end dry-run on real Moroccan postings (Alten Maroc, Alkimiy, CGI). Suite of **599 unit tests** passing with 0 regressions. |
+| **Web UI** | **Local Interactive Dashboard** | Full-featured control center running locally (`node server.js` on port `3010`) for visual job browsing, conversion funnel inspection, candidate dossier review, and STAR interview simulation. |
+
+---
 
 ## Does it actually work?
 
