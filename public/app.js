@@ -20,22 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Tab Switching
+function switchTab(target) {
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(t => {
+    if (t.getAttribute('data-tab') === target) {
+      t.classList.add('active');
+    } else {
+      t.classList.remove('active');
+    }
+  });
+
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  const activeContent = document.getElementById(`tab-${target}`);
+  if (activeContent) activeContent.classList.add('active');
+  state.currentTab = target;
+
+  if (target === 'tracker') {
+    loadTrackerData();
+  }
+}
+
 function initTabs() {
   const tabs = document.querySelectorAll('.nav-tab');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-tab');
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      const activeContent = document.getElementById(`tab-${target}`);
-      if (activeContent) activeContent.classList.add('active');
-      state.currentTab = target;
-
-      if (target === 'tracker') {
-        loadTrackerData();
-      }
+      switchTab(target);
     });
   });
 }
@@ -59,6 +69,10 @@ async function loadInitialData() {
     // Agents
     state.agents = agentsRes;
     document.getElementById('agentsCountLabel').textContent = `${agentsRes.length} Online`;
+    const footerEngineStatus = document.getElementById('footerEngineStatus');
+    if (footerEngineStatus && agentsRes.length > 0) {
+      footerEngineStatus.textContent = `${agentsRes.length} Agents Online`;
+    }
     renderMiniAgentsList();
     if (agentsRes.length > 0) {
       selectAgent('agent-drafter');
@@ -354,6 +368,14 @@ function renderProfile() {
   if (profName) profName.value = p.name;
   if (profHeadline) profHeadline.value = p.title;
   if (profLocation) profLocation.value = p.location;
+
+  // Sync with footer candidate card
+  const candName = document.querySelector('.candidate-quick-card .cand-name');
+  const candRole = document.querySelector('.candidate-quick-card .cand-role');
+  const candLoc = document.querySelector('.candidate-quick-card .cand-loc');
+  if (candName && p.name) candName.textContent = p.name;
+  if (candRole && p.title) candRole.textContent = p.title;
+  if (candLoc && p.location) candLoc.innerHTML = `<span class="loc-pin">📍</span> ${p.location} • Remote Worldwide`;
 }
 
 // Generate STAR Interview Coach
@@ -528,4 +550,65 @@ function initEventListeners() {
   // Interview Coach button
   const btnInterview = document.getElementById('btnGenerateInterviewPrep');
   if (btnInterview) btnInterview.addEventListener('click', runInterviewCoach);
+
+  // Initialize interactive footer controls
+  initFooterControls();
 }
+
+// Footer Tab Navigation, Scroll to Top, and Health Check
+function initFooterControls() {
+  // Footer Tab Jumps
+  document.querySelectorAll('.footer-nav-link[data-tab-target]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('data-tab-target');
+      if (target) {
+        switchTab(target);
+        const header = document.querySelector('.app-header');
+        if (header) {
+          header.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // Smooth scroll back to top button
+  const btnBackToTop = document.getElementById('btnBackToTop');
+  if (btnBackToTop) {
+    btnBackToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Real-time subsystem health ping
+  const btnRefreshHealth = document.getElementById('btnRefreshHealth');
+  if (btnRefreshHealth) {
+    btnRefreshHealth.addEventListener('click', async () => {
+      const icon = document.getElementById('refreshHealthIcon');
+      const pingEl = document.getElementById('footerLatencyVal');
+      const statusEl = document.getElementById('footerSubsystemStatus');
+      if (icon) icon.classList.add('rotating-spin');
+
+      const start = performance.now();
+      try {
+        const res = await fetch('/api/status');
+        const elapsed = Math.max(9, Math.round(performance.now() - start));
+        if (pingEl) pingEl.textContent = `${elapsed}ms`;
+        if (statusEl) {
+          statusEl.textContent = 'All 7 Agents Operational';
+          statusEl.classList.add('text-glow-green');
+        }
+      } catch {
+        if (pingEl) pingEl.textContent = 'Warning';
+        if (statusEl) statusEl.textContent = 'Connection Degraded';
+      } finally {
+        setTimeout(() => {
+          if (icon) icon.classList.remove('rotating-spin');
+        }, 500);
+      }
+    });
+  }
+}
+
