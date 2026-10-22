@@ -625,6 +625,16 @@ const server = http.createServer((req, res) => {
     return sendJson(200, getTrackerData());
   }
 
+  if (pathname === '/api/export/csv' && method === 'GET') {
+    ensureTrackerFile();
+    res.writeHead(200, {
+      'Content-Type': 'text/csv; charset=utf-8',
+      'Content-Disposition': 'attachment; filename="job_search_tracker.csv"',
+      'Access-Control-Allow-Origin': '*'
+    });
+    return fs.createReadStream(TRACKER_FILE).pipe(res);
+  }
+
   if (pathname === '/api/dossiers' && method === 'GET') {
     const appsLogPath = path.join(ROOT_DIR, 'job_scraper', 'applications_log.json');
     if (fs.existsSync(appsLogPath)) {
