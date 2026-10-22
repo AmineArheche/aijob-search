@@ -553,6 +553,44 @@ function initEventListeners() {
 
   // Initialize interactive footer controls
   initFooterControls();
+  initFooterClocks();
+}
+
+// Morocco GMT+1 & UTC Dual System Clocks
+function initFooterClocks() {
+  const moroccoEl = document.getElementById('footerMoroccoClock');
+  const utcEl = document.getElementById('footerUtcClock');
+
+  function updateClocks() {
+    const now = new Date();
+    if (moroccoEl) {
+      try {
+        moroccoEl.textContent = new Intl.DateTimeFormat('fr-FR', {
+          timeZone: 'Africa/Casablanca',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        }).format(now);
+      } catch {
+        moroccoEl.textContent = now.toLocaleTimeString();
+      }
+    }
+    if (utcEl) {
+      try {
+        utcEl.textContent = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'UTC',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        }).format(now) + ' UTC';
+      } catch {
+        utcEl.textContent = now.toUTCString().slice(17, 25) + ' UTC';
+      }
+    }
+  }
+
+  updateClocks();
+  setInterval(updateClocks, 1000);
 }
 
 // Footer Tab Navigation, Scroll to Top, and Health Check
