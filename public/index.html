@@ -601,6 +601,48 @@ Requirements:
     <div class="footer-top-glow"></div>
 
     <div class="footer-container">
+      <!-- High-Density Telemetry Strip -->
+      <div class="footer-telemetry-strip" id="footerTelemetryStrip">
+        <div class="telemetry-strip-left">
+          <div class="telemetry-chip active">
+            <span class="pulse-dot green"></span>
+            <span class="telemetry-chip-label">MESH STATUS:</span>
+            <span class="telemetry-chip-val" id="stripMeshStatus">7/7 Nodes Online</span>
+          </div>
+          <div class="telemetry-chip">
+            <span class="chip-icon">🇲🇦</span>
+            <span class="telemetry-chip-label">FÈS (GMT+1):</span>
+            <span class="telemetry-chip-val mono" id="footerMoroccoClock">--:--:--</span>
+          </div>
+          <div class="telemetry-chip">
+            <span class="chip-icon">🌐</span>
+            <span class="telemetry-chip-label">UTC:</span>
+            <span class="telemetry-chip-val mono" id="footerUtcClock">--:--:--</span>
+          </div>
+          <div class="telemetry-chip">
+            <span class="chip-icon">⏱️</span>
+            <span class="telemetry-chip-label">UPTIME:</span>
+            <span class="telemetry-chip-val mono" id="footerUptimeVal">Calculating...</span>
+          </div>
+          <div class="telemetry-chip">
+            <span class="chip-icon">💾</span>
+            <span class="telemetry-chip-label">HEAP:</span>
+            <span class="telemetry-chip-val mono" id="footerMemoryVal">-- MB</span>
+          </div>
+        </div>
+
+        <div class="telemetry-strip-right">
+          <button class="telemetry-action-chip" id="btnFooterPaletteTrigger" title="Open Global Command Palette (Ctrl+K)">
+            <span class="kbd-hint">Ctrl+K</span>
+            <span>Quick Launcher</span>
+          </button>
+          <button class="telemetry-action-chip" id="btnFooterArchCopy" title="Copy Agent System Topology summary">
+            <span id="copyArchIcon">📋</span>
+            <span>Architecture Specs</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Main Footer Grid: 4 Dynamic Pillars -->
       <div class="footer-grid">
 
