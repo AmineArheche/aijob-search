@@ -1024,6 +1024,44 @@ Requirements:
     </div>
   </div>
 
+  <!-- Push Notification Diagnostic Modal -->
+  <div class="modal-backdrop" id="notifyModal" style="display: none;">
+    <div class="modal-box notify-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">🔔 Telemetry Push Notification Tester</h3>
+        <button class="modal-close" id="btnCloseNotifyModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="notify-desc">Simulate immediate multi-channel dispatch across ntfy.sh topic and local web dashboard notifications.</p>
+        <div class="input-group">
+          <label>Alert Subject / Title</label>
+          <input type="text" id="notifyTitleInput" value="AI Job Search: New High-Fit Role Discovered">
+        </div>
+        <div class="input-group">
+          <label>Notification Body Message</label>
+          <textarea id="notifyBodyInput" rows="3">ReKrute scraper identified Senior Full Stack position matching 92% profile criteria in Fès / Remote.</textarea>
+        </div>
+        <div class="input-group">
+          <label>Target Channel</label>
+          <select id="notifyChannelSelect">
+            <option value="all">All Channels (Dashboard Toast + ntfy.sh)</option>
+            <option value="toast">Dashboard Toast Only</option>
+            <option value="ntfy">ntfy.sh Channel Only</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelNotifyModal">Close</button>
+        <button class="btn btn-primary" id="btnSendTestNotify">
+          <span id="sendNotifyIcon">🚀</span> Send Diagnostic Ping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification System Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
   <script src="app.js"></script>
 </body>
 </html>
