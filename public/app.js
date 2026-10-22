@@ -631,6 +631,9 @@ function initFooterControls() {
   // Initial telemetry fetch & periodic background refresh
   fetchFooterTelemetry(false);
   setInterval(() => fetchFooterTelemetry(false), 20000);
+
+  // Keyboard navigation & global shortcuts
+  initKeyboardShortcuts();
 }
 
 // Fetch and render system telemetry in footer
@@ -679,5 +682,107 @@ async function fetchFooterTelemetry(notifyToast = false) {
       if (icon) icon.classList.remove('rotating-spin');
     }, 450);
   }
+}
+
+// Global Toast Notification Dispatcher
+function showToast(message, type = 'info') {
+  let container = document.getElementById('toastContainer');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toastContainer';
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = `toast-message ${type}`;
+  toast.innerHTML = `<span>${message}</span>`;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.transition = 'all 0.3s ease';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(12px)';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
+// Global Keyboard Shortcuts
+function initKeyboardShortcuts() {
+  window.addEventListener('keydown', (e) => {
+    // If typing in an input or textarea, only allow Escape
+    const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+    const isEditing = activeTag === 'input' || activeTag === 'textarea' || activeTag === 'select';
+
+    if (e.key === 'Escape') {
+      const modals = document.querySelectorAll('.modal-backdrop');
+      modals.forEach(m => m.style.display = 'none');
+      return;
+    }
+
+    if (isEditing) return;
+
+    // Ctrl+K / Cmd+K Quick Palette / Search
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+      e.preventDefault();
+      switchTab('scrapers');
+      const searchInp = document.getElementById('scrapeQueryInput');
+      if (searchInp) {
+        searchInp.focus();
+        searchInp.select();
+      }
+      showToast('🔍 Scrapers search focused (Ctrl+K)', 'info');
+      return;
+    }
+
+    // Number keys 1-6 for tab jumps
+    const tabMap = {
+      '1': 'architecture',
+      '2': 'scrapers',
+      '3': 'evaluator',
+      '4': 'tracker',
+      '5': 'profile',
+      '6': 'interview'
+    };
+
+    if (tabMap[e.key]) {
+      e.preventDefault();
+      switchTab(tabMap[e.key]);
+      const tabNames = {
+        '1': '1: Architecture & Agent Mesh',
+        '2': '2: Portal Scrapers & Discovery',
+        '3': '3: AI Fit Evaluator & Drafter',
+        '4': '4: Application Funnel Tracker',
+        '5': '5: Candidate Profile Center',
+        '6': '6: STAR Interview Coach'
+      };
+      showToast(`🧭 Navigated to ${tabNames[e.key]}`, 'info');
+      return;
+    }
+
+    // 't' or 'T' for top
+    if (e.key === 't' || e.key === 'T') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // 'p' or 'P' for health ping
+    if (e.key === 'p' || e.key === 'P') {
+      e.preventDefault();
+      fetchFooterTelemetry(true);
+      return;
+    }
+
+    // '?' for shortcuts modal
+    if (e.key === '?') {
+      e.preventDefault();
+      const modal = document.getElementById('shortcutsModal');
+      if (modal) {
+        modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+      }
+      return;
+    }
+  });
 }
 
