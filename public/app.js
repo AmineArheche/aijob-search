@@ -634,6 +634,113 @@ function initFooterControls() {
 
   // Keyboard navigation & global shortcuts
   initKeyboardShortcuts();
+
+  // Modal dialogs and direct action buttons
+  initFooterModalsAndActions();
+}
+
+// Footer Modals & Direct Action Triggers
+function initFooterModalsAndActions() {
+  // Export CSV
+  const btnExportCsv = document.getElementById('btnFooterExportCsv');
+  if (btnExportCsv) {
+    btnExportCsv.addEventListener('click', () => {
+      showToast('📥 Downloading job_search_tracker.csv...', 'info');
+      const a = document.createElement('a');
+      a.href = '/api/export/csv';
+      a.download = 'job_search_tracker.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  }
+
+  // Keyboard Shortcuts Modal
+  const shortcutsModal = document.getElementById('shortcutsModal');
+  const btnOpenShortcuts = document.getElementById('btnFooterShortcuts');
+  const btnCloseShortcuts = document.getElementById('btnCloseShortcutsModal');
+  const btnDismissShortcuts = document.getElementById('btnDismissShortcutsModal');
+
+  if (btnOpenShortcuts && shortcutsModal) {
+    btnOpenShortcuts.addEventListener('click', () => { shortcutsModal.style.display = 'flex'; });
+  }
+  if (btnCloseShortcuts && shortcutsModal) {
+    btnCloseShortcuts.addEventListener('click', () => { shortcutsModal.style.display = 'none'; });
+  }
+  if (btnDismissShortcuts && shortcutsModal) {
+    btnDismissShortcuts.addEventListener('click', () => { shortcutsModal.style.display = 'none'; });
+  }
+
+  // Push Notification Test Modal
+  const notifyModal = document.getElementById('notifyModal');
+  const btnOpenNotify = document.getElementById('btnTestNotify');
+  const btnCloseNotify = document.getElementById('btnCloseNotifyModal');
+  const btnCancelNotify = document.getElementById('btnCancelNotifyModal');
+  const btnSendNotify = document.getElementById('btnSendTestNotify');
+
+  if (btnOpenNotify && notifyModal) {
+    btnOpenNotify.addEventListener('click', () => { notifyModal.style.display = 'flex'; });
+  }
+  if (btnCloseNotify && notifyModal) {
+    btnCloseNotify.addEventListener('click', () => { notifyModal.style.display = 'none'; });
+  }
+  if (btnCancelNotify && notifyModal) {
+    btnCancelNotify.addEventListener('click', () => { notifyModal.style.display = 'none'; });
+  }
+
+  if (btnSendNotify) {
+    btnSendNotify.addEventListener('click', async () => {
+      const title = document.getElementById('notifyTitleInput')?.value || 'AI Job Search Alert';
+      const body = document.getElementById('notifyBodyInput')?.value || 'Autonomous telemetry ping';
+      const channel = document.getElementById('notifyChannelSelect')?.value || 'all';
+
+      btnSendNotify.disabled = true;
+      btnSendNotify.innerHTML = `<span>⏳ Dispatching...</span>`;
+
+      try {
+        await fetch('/api/notify/test', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, body, channel })
+        });
+        showToast(`🔔 [${channel.toUpperCase()}] Alert Dispatched: "${title}"`, 'success');
+      } catch (err) {
+        showToast('⚠️ Failed to dispatch diagnostic alert', 'warning');
+      } finally {
+        btnSendNotify.disabled = false;
+        btnSendNotify.innerHTML = `<span id="sendNotifyIcon">🚀</span> Send Diagnostic Ping`;
+        if (notifyModal) notifyModal.style.display = 'none';
+      }
+    });
+  }
+
+  // Quick Command Launcher Palette Trigger
+  const btnPaletteTrigger = document.getElementById('btnFooterPaletteTrigger');
+  if (btnPaletteTrigger) {
+    btnPaletteTrigger.addEventListener('click', () => {
+      switchTab('scrapers');
+      const searchInp = document.getElementById('scrapeQueryInput');
+      if (searchInp) {
+        searchInp.focus();
+        searchInp.select();
+      }
+      showToast('🔍 Scrapers search focused (Ctrl+K)', 'info');
+    });
+  }
+
+  // Architecture specs copy trigger
+  const btnCopyArch = document.getElementById('btnFooterArchCopy');
+  if (btnCopyArch) {
+    btnCopyArch.addEventListener('click', async () => {
+      const summary = `AI Job Search Architecture (v1.0.0)\nCandidate: Amine Arheche (Full Stack & AI Systems)\nAgents: 7 Nodes (Profiler, Scrapers, Evaluator, Drafter, Reviewer, Interviewer, Tracker)\nGround-Truth: CLAUDE.md & .claude/ Thin-Pointer Design\nPortals: ReKrute, MonCallCenter, FreeHire, LinkedIn, Jobindex, Jobnet`;
+      try {
+        await navigator.clipboard.writeText(summary);
+        showToast('📋 Architecture specifications copied to clipboard!', 'success');
+      } catch {
+        showToast('📋 Specs: 7 Autonomous Nodes Active', 'info');
+      }
+    });
+  }
 }
 
 // Fetch and render system telemetry in footer
