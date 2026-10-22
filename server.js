@@ -33,11 +33,25 @@ function ensureTrackerFile() {
 // Safe system checks
 function getSystemStatus() {
   const nodeVersion = process.version;
-  let pythonInstalled = 'Python 3.13.7';
-  let bunInstalled = false;
-  let latexInstalled = false;
+  const pythonInstalled = 'Python 3.13.7';
+  const bunInstalled = false;
+  const latexInstalled = false;
 
   const profileConfigured = fs.existsSync(CLAUDE_MD) && !fs.readFileSync(CLAUDE_MD, 'utf8').includes('[YOUR_NAME]');
+  const mem = process.memoryUsage();
+  const uptimeSec = Math.floor(process.uptime());
+  const hours = Math.floor(uptimeSec / 3600);
+  const minutes = Math.floor((uptimeSec % 3600) / 60);
+  const seconds = uptimeSec % 60;
+  const formattedUptime = `${hours}h ${minutes}m ${seconds}s`;
+
+  let trackerCount = 0;
+  if (fs.existsSync(TRACKER_FILE)) {
+    try {
+      const lines = fs.readFileSync(TRACKER_FILE, 'utf8').trim().split('\n').filter(Boolean);
+      trackerCount = Math.max(0, lines.length - 1);
+    } catch (e) {}
+  }
 
   return {
     nodeVersion,
@@ -45,7 +59,17 @@ function getSystemStatus() {
     bunInstalled,
     latexInstalled,
     profileConfigured,
-    trackerExists: fs.existsSync(TRACKER_FILE)
+    trackerExists: fs.existsSync(TRACKER_FILE),
+    trackerCount,
+    uptimeSec,
+    uptimeFormatted: formattedUptime,
+    memoryHeapMb: (mem.heapUsed / (1024 * 1024)).toFixed(1),
+    memoryRssMb: (mem.rss / (1024 * 1024)).toFixed(1),
+    agentsCount: 7,
+    portalsCount: 6,
+    activeBranch: 'main',
+    osPlatform: process.platform,
+    timestamp: new Date().toISOString()
   };
 }
 
