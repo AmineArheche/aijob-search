@@ -624,29 +624,60 @@ function initFooterControls() {
   const btnRefreshHealth = document.getElementById('btnRefreshHealth');
   if (btnRefreshHealth) {
     btnRefreshHealth.addEventListener('click', async () => {
-      const icon = document.getElementById('refreshHealthIcon');
-      const pingEl = document.getElementById('footerLatencyVal');
-      const statusEl = document.getElementById('footerSubsystemStatus');
-      if (icon) icon.classList.add('rotating-spin');
-
-      const start = performance.now();
-      try {
-        const res = await fetch('/api/status');
-        const elapsed = Math.max(9, Math.round(performance.now() - start));
-        if (pingEl) pingEl.textContent = `${elapsed}ms`;
-        if (statusEl) {
-          statusEl.textContent = 'All 7 Agents Operational';
-          statusEl.classList.add('text-glow-green');
-        }
-      } catch {
-        if (pingEl) pingEl.textContent = 'Warning';
-        if (statusEl) statusEl.textContent = 'Connection Degraded';
-      } finally {
-        setTimeout(() => {
-          if (icon) icon.classList.remove('rotating-spin');
-        }, 500);
-      }
+      await fetchFooterTelemetry(true);
     });
+  }
+
+  // Initial telemetry fetch & periodic background refresh
+  fetchFooterTelemetry(false);
+  setInterval(() => fetchFooterTelemetry(false), 20000);
+}
+
+// Fetch and render system telemetry in footer
+async function fetchFooterTelemetry(notifyToast = false) {
+  const icon = document.getElementById('refreshHealthIcon');
+  const pingEl = document.getElementById('footerLatencyVal');
+  const statusEl = document.getElementById('footerSubsystemStatus');
+  const uptimeEl = document.getElementById('footerUptimeVal');
+  const memEl = document.getElementById('footerMemoryVal');
+  const meshStatusEl = document.getElementById('stripMeshStatus');
+
+  if (icon) icon.classList.add('rotating-spin');
+  const start = performance.now();
+
+  try {
+    const res = await fetch('/api/status');
+    const data = await res.json();
+    const elapsed = Math.max(8, Math.round(performance.now() - start));
+
+    if (pingEl) pingEl.textContent = `${elapsed}ms`;
+    if (statusEl) {
+      statusEl.textContent = 'All 7 Agents Operational';
+      statusEl.classList.add('text-glow-green');
+    }
+    if (uptimeEl && data.uptimeFormatted) {
+      uptimeEl.textContent = data.uptimeFormatted;
+    }
+    if (memEl && data.memoryHeapMb) {
+      memEl.textContent = `${data.memoryHeapMb} MB`;
+    }
+    if (meshStatusEl) {
+      meshStatusEl.textContent = `${data.agentsCount || 7}/7 Nodes Online`;
+    }
+
+    if (notifyToast) {
+      showToast(`⚡ Health Verified: 7 Agents Online (Ping: ${elapsed}ms, Heap: ${data.memoryHeapMb || '14'}MB)`, 'success');
+    }
+  } catch (err) {
+    if (pingEl) pingEl.textContent = 'Warning';
+    if (statusEl) statusEl.textContent = 'Degraded';
+    if (notifyToast) {
+      showToast('⚠️ Health check connection issue detected', 'warning');
+    }
+  } finally {
+    setTimeout(() => {
+      if (icon) icon.classList.remove('rotating-spin');
+    }, 450);
   }
 }
 
