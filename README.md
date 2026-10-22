@@ -387,7 +387,52 @@ The framework supports two distinct modes of job searching:
 - **Explicit targeting:** You know which roles or sectors you want. The system helps refine and prioritize based on fit.
 - **Latent opportunity discovery:** By analyzing your full history (not just job titles, but the actual work you did), the system can surface career paths you haven't considered. Transferable skills that map to unexpected industries, patterns in what you enjoyed or excelled at, or emerging roles that combine your domain expertise with new technology.
 
-To get the most from this, invest time during `/setup` in describing not just your experience, but what energized you, what drained you, and what you'd want more of. This context directly shapes how the system evaluates fit and which roles it surfaces during `/scrape`.
+## Interactive Command Center & Telemetry Dashboard
+
+The repository includes a web-based command center (`server.js` + `public/`) providing real-time multi-agent orchestration, fit evaluation, pipeline Kanban, and a comprehensive cyber-command footer:
+
+```bash
+# Start the interactive dashboard server
+npm start
+# Server listens on http://localhost:3010
+```
+
+### Next-Gen Command Center Footer Features
+
+1. **High-Density Telemetry Strip:**
+   - **Dual Clocks:** Synchronized local time for **Fès, Morocco (GMT+1 / Western European Time)** and **UTC**.
+   - **Engine Diagnostics:** Real-time uptime counter, memory heap usage (`process.memoryUsage()`), and 7-node agent mesh monitor.
+   - **Quick Command Launcher:** `Ctrl+K` shortcut to instantly trigger search queries across scrapers.
+   - **Architecture Specs Export:** One-click copy of canonical system topology to clipboard.
+
+2. **Candidate Identity & Portfolio Hub:**
+   - Candidate persona for **Amine Arheche** (Senior Full Stack & AI Systems Developer).
+   - Direct communication chips: instant email (`mailto:Aminearheche@gmail.com`) and phone/WhatsApp (`+212 720819047`).
+   - Verified credentials badges: **DTS Digital Development (ISTA Ifrane)**, **CISCO Python Essentials**, and **FR/EN B2 Bilingual**.
+
+3. **Discovery Skills Mesh & Protocols:**
+   - **ReKrute:** HTML Scraper for Moroccan tech & executive roles.
+   - **MonCallCenter:** BPO parser for technical support & bilingual advisor roles.
+   - **FreeHire API:** REST aggregator spanning 50+ ATS platforms worldwide.
+   - **LinkedIn Jobs:** Autonomous search CLI with Boolean filter queries.
+   - **Nordic Gateways:** Extended STAR API connections (Jobindex, Jobnet, Jobbank).
+
+4. **Safety Guardrails & Diagnostics:**
+   - **Human Approval Gate:** Strict verification check before application dispatch.
+   - **LaTeX Zero-Hole Verification:** Automated bounding box and orphan detection.
+   - **Multi-Channel Push Tester:** Interactive diagnostic modal testing ntfy.sh and local toasts.
+   - **Autonomous Error Recovery:** Automated re-compilation on overfull hbox anomalies.
+
+5. **Keyboard Shortcuts:**
+   - `1 – 6`: Instant navigation between all 6 dashboard views.
+   - `Ctrl + K`: Jump directly to scraper discovery search input.
+   - `T`: Smooth animated scroll to top of command center.
+   - `P`: Trigger real-time subsystem ping and latency calculation.
+   - `?`: Toggle keyboard shortcuts cheatsheet modal.
+   - `Esc`: Dismiss active modal dialog.
+
+6. **Spreadsheet Pipeline Export:**
+   - One-click direct export of `job_search_tracker.csv` via `/api/export/csv`.
 
 ## Contributing
 
