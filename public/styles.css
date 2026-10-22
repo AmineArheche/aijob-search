@@ -1408,6 +1408,53 @@ body {
   margin-top: 0.15rem;
 }
 
+/* Candidate Communication Chips */
+.cand-contact-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.cand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cand-chip:hover {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan);
+  transform: translateX(3px);
+}
+
+/* Candidate Credentials Strip */
+.cand-creds-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.cred-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
 .system-status-indicator {
   display: flex;
   align-items: center;
