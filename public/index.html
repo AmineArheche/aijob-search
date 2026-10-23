@@ -428,6 +428,107 @@
           </div>
         </div>
       </div>
+
+      <!-- Live Agent Event Stream & Activity Hub -->
+      <div class="home-activity-stream-panel">
+        <div class="activity-panel-header">
+          <div class="activity-header-left">
+            <span class="activity-live-radar-dot"></span>
+            <div>
+              <h3 class="activity-panel-title">Real-Time Autonomous Agent Event Stream</h3>
+              <p class="activity-panel-subtitle">Streaming execution logs, dual-gate evaluations, and synthesis events</p>
+            </div>
+          </div>
+          <div class="activity-header-right">
+            <div class="activity-filter-pills" id="activityFilterPills">
+              <button class="pill-btn active" data-filter="all">All Events</button>
+              <button class="pill-btn" data-filter="scraper">Discovery</button>
+              <button class="pill-btn" data-filter="evaluator">Evaluation</button>
+              <button class="pill-btn" data-filter="drafter">LaTeX Synthesis</button>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnSimulatePipeline">
+              <span>▶ Run Pipeline Sim</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="activity-stream-timeline" id="activityStreamTimeline">
+          <!-- Event 1 -->
+          <div class="activity-event-row" data-type="scraper">
+            <div class="event-time-col">
+              <span class="event-time">16:11:02</span>
+              <span class="event-agent-tag tag-cyan">Scraper</span>
+            </div>
+            <div class="event-indicator">
+              <span class="event-dot dot-cyan"></span>
+              <span class="event-line"></span>
+            </div>
+            <div class="event-content-col">
+              <div class="event-header-line">
+                <span class="event-title">Indexed 18 Technical Roles across Rekrute Morocco & LinkedIn</span>
+                <span class="event-meta-badge">Casablanca / Remote</span>
+              </div>
+              <p class="event-desc">Parsed technical vacancies for Full Stack, React, TypeScript, and Python AI Engineers. Filtered by location gate.</p>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="activity-event-row" data-type="evaluator">
+            <div class="event-time-col">
+              <span class="event-time">16:08:45</span>
+              <span class="event-agent-tag tag-purple">Evaluator</span>
+            </div>
+            <div class="event-indicator">
+              <span class="event-dot dot-purple"></span>
+              <span class="event-line"></span>
+            </div>
+            <div class="event-content-col">
+              <div class="event-header-line">
+                <span class="event-title">Dual-Gate Compatibility Pass: Datadog Platform Role</span>
+                <span class="event-score-badge">94% Match</span>
+              </div>
+              <p class="event-desc">Language Gate: PASSED (FR/EN confirmed). Dealbreakers: PASSED. Zero commute violation. Forwarded to LaTeX Tailored Drafter.</p>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="activity-event-row" data-type="drafter">
+            <div class="event-time-col">
+              <span class="event-time">15:54:19</span>
+              <span class="event-agent-tag tag-emerald">Drafter</span>
+            </div>
+            <div class="event-indicator">
+              <span class="event-dot dot-emerald"></span>
+              <span class="event-line"></span>
+            </div>
+            <div class="event-content-col">
+              <div class="event-header-line">
+                <span class="event-title">ModernCV LaTeX Engine synthesized targeted application documents</span>
+                <span class="event-meta-badge">cv/main_datadog_ai_platform.tex</span>
+              </div>
+              <p class="event-desc">Tailored technical bullet points focusing on TypeScript, Python microservices, and distributed architecture. Generated customized cover letter.</p>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="activity-event-row" data-type="reviewer">
+            <div class="event-time-col">
+              <span class="event-time">15:42:10</span>
+              <span class="event-agent-tag tag-amber">Reviewer</span>
+            </div>
+            <div class="event-indicator">
+              <span class="event-dot dot-amber"></span>
+            </div>
+            <div class="event-content-col">
+              <div class="event-header-line">
+                <span class="event-title">ATS Layout Verification & PDF Parseability Passed</span>
+                <span class="event-meta-badge">Score: 98.8/100</span>
+              </div>
+              <p class="event-desc">pdftotext extracted full text cleanly. Single page budget verified. No orphan headings. Status updated in job_search_tracker.csv.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TAB 1: ARCHITECTURE & AGENTS MAP -->
