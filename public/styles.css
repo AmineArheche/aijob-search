@@ -1601,6 +1601,184 @@ body {
   font-weight: 700;
 }
 
+/* ========================================================
+   HOME COMMAND CENTER: FEATURED OPPORTUNITY SPOTLIGHT
+   ======================================================== */
+.home-spotlight-panel {
+  background: rgba(12, 18, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 2rem;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.spotlight-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.spotlight-panel-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-highlight);
+}
+
+.spotlight-panel-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.spotlight-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.spotlight-job-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(20, 30, 55, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.spotlight-job-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.4), var(--shadow-glow-cyan);
+}
+
+.spotlight-job-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.spotlight-match-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.spotlight-match-badge.badge-high {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green-bright);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.spotlight-match-badge.badge-good {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-cyan-bright);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+
+.spotlight-source-pill {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  background: rgba(15, 23, 42, 0.7);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+}
+
+.spotlight-card-body {
+  margin-bottom: 1.25rem;
+}
+
+.spotlight-job-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.spotlight-company-line {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.company-name {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.company-location {
+  color: var(--text-muted);
+}
+
+.dot-separator {
+  color: var(--text-dim);
+}
+
+.spotlight-job-snippet {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.95rem;
+}
+
+.spotlight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.spotlight-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.spotlight-salary-est {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-green-bright);
+}
+
 /* Section Intro */
 .section-intro {
   display: flex;
