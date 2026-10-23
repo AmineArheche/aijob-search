@@ -87,8 +87,78 @@
       </button>
     </nav>
 
+    <!-- TAB 0: HOME / COMMAND CENTER -->
+    <section id="tab-home" class="tab-content active">
+      <!-- Executive Hero Command Banner -->
+      <div class="home-hero-banner">
+        <div class="hero-ambient-glow"></div>
+        <div class="hero-content-grid">
+          <div class="hero-left">
+            <div class="candidate-hero-pill">
+              <span class="live-dot-green"></span>
+              <span class="candidate-hero-name">Amine Arheche</span>
+              <span class="pill-divider">•</span>
+              <span class="candidate-hero-location">Fès, Morocco & Remote EU/Global</span>
+              <span class="hero-status-pill">Active Search</span>
+            </div>
+            <h1 class="hero-main-title">
+              Autonomous Multi-Agent <br/>
+              <span class="hero-gradient-text">Job Search Command Center</span>
+            </h1>
+            <p class="hero-subtext">
+              Orchestrating 7 specialized AI agents across 7 recruitment portals. Dual-gate qualification scoring,
+              automated LaTeX ModernCV tailoring, and behavioral STAR interview coaching with zero configuration drift.
+            </p>
+            <div class="hero-tags-group">
+              <span class="hero-tag-chip hero-chip-cyan">⚡ Full Stack & AI Systems</span>
+              <span class="hero-tag-chip">TypeScript / React / Node.js</span>
+              <span class="hero-tag-chip">Python & FASTApi</span>
+              <span class="hero-tag-chip hero-chip-emerald">CISCO Certified</span>
+              <span class="hero-tag-chip hero-chip-purple">ISTA Ifrane DTS</span>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-telemetry-card">
+              <div class="telemetry-card-header">
+                <span class="telemetry-card-title">System Mesh Telemetry</span>
+                <span class="telemetry-live-badge"><span class="pulse-indicator-small"></span> Operational</span>
+              </div>
+              <div class="telemetry-stat-row">
+                <div class="t-stat">
+                  <span class="t-stat-label">Active Agents</span>
+                  <span class="t-stat-val text-cyan" id="heroAgentsCount">7 Nodes</span>
+                </div>
+                <div class="t-stat">
+                  <span class="t-stat-label">Portals Monitored</span>
+                  <span class="t-stat-val text-purple" id="heroPortalsCount">7 Portals</span>
+                </div>
+              </div>
+              <div class="telemetry-stat-row">
+                <div class="t-stat">
+                  <span class="t-stat-label">Fit Gate Threshold</span>
+                  <span class="t-stat-val text-green" id="heroGateThreshold">90% / Dual</span>
+                </div>
+                <div class="t-stat">
+                  <span class="t-stat-label">Target Markets</span>
+                  <span class="t-stat-val text-amber">MA & EU Remote</span>
+                </div>
+              </div>
+              <div class="hero-action-buttons">
+                <button class="btn btn-primary hero-btn" onclick="switchTab('scrapers')">
+                  <span>🔍 Multi-Portal Scan</span>
+                </button>
+                <button class="btn btn-secondary hero-btn" onclick="switchTab('evaluator')">
+                  <span>⚡ AI Fit Evaluator</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TAB 1: ARCHITECTURE & AGENTS MAP -->
-    <section id="tab-architecture" class="tab-content active">
+    <section id="tab-architecture" class="tab-content">
       <div class="section-intro">
         <div>
           <h2 class="section-title">Multi-Agent System Architecture</h2>
