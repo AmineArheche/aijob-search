@@ -1178,8 +1178,11 @@ function initKeyboardShortcuts() {
       return;
     }
 
-    // Number keys 1-6 for tab jumps
+    // Keys 0-6 or 'h' for tab jumps
     const tabMap = {
+      '0': 'home',
+      'h': 'home',
+      'H': 'home',
       '1': 'architecture',
       '2': 'scrapers',
       '3': 'evaluator',
@@ -1192,6 +1195,9 @@ function initKeyboardShortcuts() {
       e.preventDefault();
       switchTab(tabMap[e.key]);
       const tabNames = {
+        '0': '0: Command Center (Home)',
+        'h': 'Command Center (Home)',
+        'H': 'Command Center (Home)',
         '1': '1: Architecture & Agent Mesh',
         '2': '2: Portal Scrapers & Discovery',
         '3': '3: AI Fit Evaluator & Drafter',
