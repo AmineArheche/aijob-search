@@ -4,7 +4,10 @@
 // ========================================================
 
 const state = {
-  currentTab: 'architecture',
+  currentTab: 'home',
+  homeOverview: null,
+  events: [],
+  salaryBenchmark: null,
   agents: [],
   tracker: { applications: [], stats: {} },
   profile: null,
@@ -16,6 +19,7 @@ const state = {
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initEventListeners();
+  initHomeCommandCenter();
   loadInitialData();
 });
 
@@ -37,6 +41,8 @@ function switchTab(target) {
 
   if (target === 'tracker') {
     loadTrackerData();
+  } else if (target === 'home') {
+    refreshHomeOverview();
   }
 }
 
