@@ -529,6 +529,102 @@
           </div>
         </div>
       </div>
+
+      <!-- Market Intelligence & Compensation Radar -->
+      <div class="home-salary-radar-panel">
+        <div class="salary-panel-header">
+          <div>
+            <h3 class="salary-panel-title">Market Intelligence & Compensation Radar</h3>
+            <p class="salary-panel-subtitle">Calibrated with real-world tech compensation data for Morocco (MAD) and Global Remote / European benchmarks</p>
+          </div>
+          <div class="salary-region-toggles" id="salaryRegionToggles">
+            <button class="region-toggle-btn active" data-region="MA">🇲🇦 Morocco (MAD/mo)</button>
+            <button class="region-toggle-btn" data-region="EU">🇪🇺 Europe (EUR/yr)</button>
+            <button class="region-toggle-btn" data-region="DK">🇩🇰 Nordic (DKK/mo)</button>
+          </div>
+        </div>
+
+        <div class="salary-radar-grid">
+          <!-- Left: Interactive Controls & Benchmarks -->
+          <div class="salary-calc-box">
+            <div class="salary-control-group">
+              <label class="control-label">Target Role Archetype</label>
+              <select id="salaryRoleSelect" class="form-select">
+                <option value="fullstack" selected>Full Stack Software Engineer (TypeScript / React / Node)</option>
+                <option value="python_ai">Python & AI Systems Developer (FastAPI / LLM Agents)</option>
+                <option value="frontend">Frontend Specialist (React / Next.js / Tailwind)</option>
+                <option value="backend">Backend & Distributed Systems (Node.js / PostgreSQL / Cloud)</option>
+                <option value="support_tech">Technical Support / BPO IT (French & English B2)</option>
+              </select>
+            </div>
+
+            <div class="salary-control-group">
+              <div class="slider-label-row">
+                <span class="control-label">Experience Seniority Tier</span>
+                <span class="slider-val-badge" id="salarySeniorityLabel">Mid-Level (2-4 Years)</span>
+              </div>
+              <input type="range" id="salarySeniorityRange" min="1" max="4" value="2" class="salary-slider">
+              <div class="slider-ticks">
+                <span>Junior (0-2y)</span>
+                <span>Mid (2-4y)</span>
+                <span>Senior (5-8y)</span>
+                <span>Lead / Architect</span>
+              </div>
+            </div>
+
+            <div class="salary-multipliers-box">
+              <span class="multipliers-title">High-Value Tech Multipliers:</span>
+              <div class="multiplier-chips">
+                <span class="mult-chip active">TypeScript (+15%)</span>
+                <span class="mult-chip active">Python & AI (+20%)</span>
+                <span class="mult-chip active">Bilingual FR/EN (+18%)</span>
+                <span class="mult-chip">Docker/AWS (+12%)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Compensation Card -->
+          <div class="salary-display-card">
+            <div class="display-top">
+              <span class="display-pill-badge" id="salaryDisplayPill">Morocco Market • Mid Full Stack</span>
+              <span class="verified-tag">✓ Verified Source</span>
+            </div>
+
+            <div class="salary-main-amount">
+              <span class="currency-symbol" id="salaryCurrencySymbol">MAD</span>
+              <span class="amount-number" id="salaryMedianAmount">22,500</span>
+              <span class="period-unit" id="salaryPeriodUnit">/ month</span>
+            </div>
+
+            <div class="salary-progress-bar-wrap">
+              <div class="bar-range-labels">
+                <span id="salaryMinLabel">16,000 MAD</span>
+                <span class="bar-median-label">Market Median</span>
+                <span id="salaryMaxLabel">32,000 MAD</span>
+              </div>
+              <div class="salary-progress-track">
+                <div class="salary-progress-fill" id="salaryProgressFill" style="width: 58%;"></div>
+                <div class="salary-marker" id="salaryMarker" style="left: 58%;"></div>
+              </div>
+            </div>
+
+            <div class="salary-stat-pills-row">
+              <div class="salary-mini-pill">
+                <span class="mini-label">Estimated Net</span>
+                <span class="mini-val text-green" id="salaryNetEstimate">~18,200 MAD</span>
+              </div>
+              <div class="salary-mini-pill">
+                <span class="mini-label">Market Demand</span>
+                <span class="mini-val text-cyan" id="salaryDemandRating">Very High (9.2/10)</span>
+              </div>
+              <div class="salary-mini-pill">
+                <span class="mini-label">Sourcing Speed</span>
+                <span class="mini-val text-purple">~12 Days to Offer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TAB 1: ARCHITECTURE & AGENTS MAP -->
