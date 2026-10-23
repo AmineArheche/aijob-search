@@ -55,29 +55,34 @@
   <!-- Main Container -->
   <main class="dashboard-shell">
     <!-- Navigation Tabs -->
-    <nav class="nav-tabs">
-      <button class="nav-tab active" data-tab="architecture">
+    <nav class="nav-tabs" id="mainNavTabs">
+      <button class="nav-tab active" data-tab="home" id="tabNavHome">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-title">Command Center</span>
+        <span class="tab-badge pulse-dot-badge">Live</span>
+      </button>
+      <button class="nav-tab" data-tab="architecture" id="tabNavArch">
         <span class="tab-icon">🕸️</span>
         <span class="tab-title">Architecture & Agents Map</span>
       </button>
-      <button class="nav-tab" data-tab="scrapers">
+      <button class="nav-tab" data-tab="scrapers" id="tabNavScrapers">
         <span class="tab-icon">🔍</span>
         <span class="tab-title">Portal Scrapers & Discovery</span>
       </button>
-      <button class="nav-tab" data-tab="evaluator">
-        <span class="tab-icon">⚡</span>
+      <button class="nav-tab" data-tab="evaluator" id="tabNavEvaluator">
+        <span class="tab-icon">🎯</span>
         <span class="tab-title">AI Fit Evaluator & Drafter</span>
       </button>
-      <button class="nav-tab" data-tab="tracker">
+      <button class="nav-tab" data-tab="tracker" id="tabNavTracker">
         <span class="tab-icon">📊</span>
         <span class="tab-title">Application Funnel Tracker</span>
       </button>
-      <button class="nav-tab" data-tab="profile">
+      <button class="nav-tab" data-tab="profile" id="tabNavProfile">
         <span class="tab-icon">👤</span>
         <span class="tab-title">Candidate Profile Center</span>
       </button>
-      <button class="nav-tab" data-tab="interview">
-        <span class="tab-icon">🎯</span>
+      <button class="nav-tab" data-tab="interview" id="tabNavInterview">
+        <span class="tab-icon">🎤</span>
         <span class="tab-title">STAR Interview Coach</span>
       </button>
     </nav>
