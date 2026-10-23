@@ -101,6 +101,63 @@ function bindAgentRadarEvents() {
   });
 }
 
+// Quick Action Launcher Handlers
+function initQuickActionButtons() {
+  window.triggerQuickAction = function(action) {
+    switch (action) {
+      case 'scrape-casablanca':
+        switchTab('scrapers');
+        const qInp = document.getElementById('scraperQueryInput');
+        const lInp = document.getElementById('scraperLocationInput');
+        const pSel = document.getElementById('scraperPortalSelect');
+        if (qInp) qInp.value = 'Full Stack Developer';
+        if (lInp) lInp.value = 'Casablanca & Remote MA';
+        if (pSel) pSel.value = 'LinkedIn';
+        runScraperQuery();
+        showToast('🇲🇦 Sourcing Moroccan tech roles in Casablanca & Fès...', 'info');
+        break;
+
+      case 'scrape-remote':
+        switchTab('scrapers');
+        const rqInp = document.getElementById('scraperQueryInput');
+        const rlInp = document.getElementById('scraperLocationInput');
+        const rpSel = document.getElementById('scraperPortalSelect');
+        if (rqInp) rqInp.value = 'Senior Full Stack Software Engineer';
+        if (rlInp) rlInp.value = 'Remote Europe / Worldwide';
+        if (rpSel) rpSel.value = 'Freehire';
+        runScraperQuery();
+        showToast('🌍 Sourcing global remote software engineering roles via Freehire...', 'info');
+        break;
+
+      case 'evaluate-sample':
+        switchTab('evaluator');
+        runFitEvaluation();
+        showToast('⚡ Executing dual-gate AI qualification audit on opportunity...', 'success');
+        break;
+
+      case 'draft-latex':
+        switchTab('evaluator');
+        draftTailoredDocs();
+        showToast('📄 Synthesizing LaTeX ModernCV and tailored cover letter...', 'info');
+        break;
+
+      case 'start-interview':
+        switchTab('interview');
+        generateInterviewPrepOutput();
+        showToast('🎯 Generating STAR interview behavioral simulation...', 'info');
+        break;
+
+      case 'export-csv':
+        window.location.href = '/api/export/csv';
+        showToast('📥 Downloading canonical job_search_tracker.csv...', 'success');
+        break;
+
+      default:
+        console.warn('Unknown quick action:', action);
+    }
+  };
+}
+
 // Initial Data Fetching
 async function loadInitialData() {
   try {
