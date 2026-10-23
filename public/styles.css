@@ -292,6 +292,66 @@ body {
   color: var(--text-main);
 }
 
+/* Master Actualiser Button */
+.btn-actualiser-platform {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.16), rgba(59, 130, 246, 0.22), rgba(139, 92, 246, 0.16));
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  padding: 0.45rem 1.05rem;
+  border-radius: var(--radius-full);
+  color: var(--text-highlight);
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+}
+
+.btn-actualiser-platform:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.28), rgba(59, 130, 246, 0.35), rgba(139, 92, 246, 0.28));
+  border-color: rgba(6, 182, 212, 0.7);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-actualiser-platform:active {
+  transform: scale(0.97);
+}
+
+.actualiser-icon {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.actualiser-icon.spinning {
+  animation: spinSync 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spinSync {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.actualiser-label {
+  white-space: nowrap;
+}
+
+.actualiser-shortcut {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--accent-cyan-bright);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 0.25rem;
+}
+
 /* Dashboard Shell */
 .dashboard-shell {
   max-width: 1440px;
