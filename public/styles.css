@@ -195,6 +195,63 @@ body {
   color: var(--text-muted);
 }
 
+.header-personal-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+}
+
+.header-personal-pill:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
+  transform: translateY(-1px);
+}
+
+.personal-pill-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.flag-icon {
+  font-size: 1.05rem;
+}
+
+.personal-greeting-text {
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+}
+
+.personal-city-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.live-dot-green-small {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-green-bright);
+  box-shadow: 0 0 6px var(--accent-green-bright);
+}
+
 .header-status-group {
   display: flex;
   align-items: center;
