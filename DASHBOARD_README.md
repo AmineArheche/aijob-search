@@ -99,6 +99,14 @@ The dashboard exposes and visualizes the 7 core autonomous agents operating with
 
 ---
 
+### 🇲🇦 Personal Candidate Experience (Amine Arheche Edition)
+- **Time-Aware Personalized Greeting**: Dynamic greeting pill attuned to Fès local time (`Africa/Casablanca` GMT+1) with automatic transitions between *Bonjour*, *Bon après-midi*, *Bonsoir*, and *Session nocturne*.
+- **Bilingual French / English Mode**: Click the personal welcome pill in the top header to seamlessly toggle between Moroccan French (`fr`) and International Tech English (`en`).
+- **Master Platform Actualiser (`⚡ Actualiser`)**: Top navigation button and modal (`A` or `R` keyboard shortcuts) executing complete state synchronisation, file integrity audits (`CLAUDE.md`, `job_search_tracker.csv`, `AGENTS.md`), and real-time agent verification with progressive feedback, terminal logs, and ambient audio feedback.
+- **Candidate Personal Crest**: Footer attribution block highlighting DTS Digital & CISCO qualifications, Moroccan flag, and verified ground-truth status.
+
+---
+
 ## 🛠️ API Endpoints
 
 The server (`server.js`) exposes a clean JSON REST API:
@@ -113,6 +121,7 @@ The server (`server.js`) exposes a clean JSON REST API:
 - `POST /api/evaluate`: Compute match score, gates check, and recommendations.
 - `POST /api/draft`: Generate LaTeX ModernCV and Cover Letter.
 - `POST /api/interview`: Generate STAR scenarios and interview prep questions.
+- `POST /api/sync/actualise`: Holistic platform refresh, verification of the 7 autonomous agents, and dynamic Casablanca greeting.
 
 ---
 
