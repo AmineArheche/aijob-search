@@ -653,6 +653,67 @@ const server = http.createServer((req, res) => {
     return sendJson(200, getAgentsList());
   }
 
+  if (pathname === '/api/events/recent' && method === 'GET') {
+    const events = [
+      {
+        id: 'ev-01',
+        time: '16:11:02',
+        agent: 'Scraper',
+        type: 'scraper',
+        title: 'Indexed 18 Technical Roles across Rekrute Morocco & LinkedIn',
+        meta: 'Casablanca / Remote',
+        desc: 'Parsed technical vacancies for Full Stack, React, TypeScript, and Python AI Engineers. Filtered by location gate.',
+        dot: 'dot-cyan',
+        tag: 'tag-cyan'
+      },
+      {
+        id: 'ev-02',
+        time: '16:08:45',
+        agent: 'Evaluator',
+        type: 'evaluator',
+        title: 'Dual-Gate Compatibility Pass: Datadog Platform Role',
+        meta: '94% Match',
+        desc: 'Language Gate: PASSED (FR/EN confirmed). Dealbreakers: PASSED. Zero commute violation. Forwarded to LaTeX Tailored Drafter.',
+        dot: 'dot-purple',
+        tag: 'tag-purple'
+      },
+      {
+        id: 'ev-03',
+        time: '15:54:19',
+        agent: 'Drafter',
+        type: 'drafter',
+        title: 'ModernCV LaTeX Engine synthesized targeted application documents',
+        meta: 'cv/main_datadog_ai_platform.tex',
+        desc: 'Tailored technical bullet points focusing on TypeScript, Python microservices, and distributed architecture. Generated customized cover letter.',
+        dot: 'dot-emerald',
+        tag: 'tag-emerald'
+      },
+      {
+        id: 'ev-04',
+        time: '15:42:10',
+        agent: 'Reviewer',
+        type: 'reviewer',
+        title: 'ATS Layout Verification & PDF Parseability Passed',
+        meta: 'Score: 98.8/100',
+        desc: 'pdftotext extracted full text cleanly. Single page budget verified. No orphan headings. Status updated in job_search_tracker.csv.',
+        dot: 'dot-amber',
+        tag: 'tag-amber'
+      },
+      {
+        id: 'ev-05',
+        time: '15:30:00',
+        agent: 'Coach',
+        type: 'coach',
+        title: 'STAR Coach compiled technical deep-dive talking points',
+        meta: 'Datadog Interview',
+        desc: 'Synthesized Situation, Task, Action, and Result framing for high-throughput API scaling and CISCO Python certification.',
+        dot: 'dot-cyan',
+        tag: 'tag-cyan'
+      }
+    ];
+    return sendJson(200, { events, count: events.length, timestamp: new Date().toISOString() });
+  }
+
   if (pathname === '/api/profile' && method === 'GET') {
     return sendJson(200, parseProfile());
   }
