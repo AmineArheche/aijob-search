@@ -158,6 +158,78 @@ function initQuickActionButtons() {
   };
 }
 
+// Activity Stream Filters & Pipeline Simulation
+function initActivityStreamFilters() {
+  const filterContainer = document.getElementById('activityFilterPills');
+  if (filterContainer) {
+    const filterButtons = filterContainer.querySelectorAll('.pill-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        const rows = document.querySelectorAll('.activity-event-row');
+        rows.forEach(row => {
+          if (filter === 'all' || row.getAttribute('data-type') === filter) {
+            row.style.display = 'grid';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  const simBtn = document.getElementById('btnSimulatePipeline');
+  if (simBtn) {
+    simBtn.addEventListener('click', async () => {
+      simBtn.disabled = true;
+      simBtn.innerHTML = '<span>⏳ Simulating Pipeline...</span>';
+
+      showToast('🚀 Initiating autonomous 5-step agent pipeline run...', 'info');
+
+      const timeline = document.getElementById('activityStreamTimeline');
+      if (timeline) {
+        const now = new Date();
+        const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+
+        const newRow = document.createElement('div');
+        newRow.className = 'activity-event-row';
+        newRow.setAttribute('data-type', 'drafter');
+        newRow.style.animation = 'fadeIn 0.4s ease';
+        newRow.innerHTML = `
+          <div class="event-time-col">
+            <span class="event-time">${timeStr}</span>
+            <span class="event-agent-tag tag-cyan">Sim Pipeline</span>
+          </div>
+          <div class="event-indicator">
+            <span class="event-dot dot-cyan"></span>
+            <span class="event-line"></span>
+          </div>
+          <div class="event-content-col">
+            <div class="event-header-line">
+              <span class="event-title">Autonomous Pipeline Run Completed: Vercel Full Stack Role</span>
+              <span class="event-score-badge">96% Gate Match</span>
+            </div>
+            <p class="event-desc">
+              Multi-portal discovery confirmed opening. Dual gates PASSED. Tailored ModernCV synthesized with LaTeX compilation budget verified.
+            </p>
+          </div>
+        `;
+
+        timeline.insertBefore(newRow, timeline.firstChild);
+      }
+
+      setTimeout(() => {
+        simBtn.disabled = false;
+        simBtn.innerHTML = '<span>▶ Run Pipeline Sim</span>';
+        showToast('✅ Autonomous pipeline simulation completed: 5 agent gates passed', 'success');
+      }, 1200);
+    });
+  }
+}
+
 // Initial Data Fetching
 async function loadInitialData() {
   try {
