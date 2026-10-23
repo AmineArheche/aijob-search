@@ -214,6 +214,20 @@ body {
   transform: translateY(-1px);
 }
 
+.header-personal-pill.pulse-active {
+  animation: personalPulseRing 0.8s ease-in-out infinite alternate;
+  border-color: var(--accent-cyan-bright);
+}
+
+@keyframes personalPulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4), 0 0 15px rgba(6, 182, 212, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(6, 182, 212, 0), 0 0 25px rgba(6, 182, 212, 0.6);
+  }
+}
+
 .personal-pill-badge {
   display: flex;
   align-items: center;
