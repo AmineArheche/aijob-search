@@ -230,6 +230,84 @@ function initActivityStreamFilters() {
   }
 }
 
+// Market Intelligence & Salary Radar Calculator
+function initSalaryRadarCalculator() {
+  const regionToggles = document.getElementById('salaryRegionToggles');
+  const roleSelect = document.getElementById('salaryRoleSelect');
+  const seniorityRange = document.getElementById('salarySeniorityRange');
+  const seniorityLabel = document.getElementById('salarySeniorityLabel');
+
+  let currentRegion = 'MA';
+
+  const tierNames = {
+    1: 'Junior (0-2 Years)',
+    2: 'Mid-Level (2-4 Years)',
+    3: 'Senior (5-8 Years)',
+    4: 'Lead / Architect (8+ Years)'
+  };
+
+  async function updateSalaryDisplay() {
+    const role = roleSelect ? roleSelect.value : 'fullstack';
+    const tier = seniorityRange ? parseInt(seniorityRange.value, 10) : 2;
+
+    if (seniorityLabel) seniorityLabel.textContent = tierNames[tier] || 'Mid-Level (2-4 Years)';
+
+    try {
+      const data = await fetch(`/api/market/salaries?region=${currentRegion}&role=${role}&tier=${tier}`).then(r => r.json());
+      if (!data) return;
+
+      const currencyEl = document.getElementById('salaryCurrencySymbol');
+      const amountEl = document.getElementById('salaryMedianAmount');
+      const unitEl = document.getElementById('salaryPeriodUnit');
+      const minEl = document.getElementById('salaryMinLabel');
+      const maxEl = document.getElementById('salaryMaxLabel');
+      const netEl = document.getElementById('salaryNetEstimate');
+      const demandEl = document.getElementById('salaryDemandRating');
+      const fillEl = document.getElementById('salaryProgressFill');
+      const markerEl = document.getElementById('salaryMarker');
+      const pillEl = document.getElementById('salaryDisplayPill');
+
+      if (currencyEl) currencyEl.textContent = data.currency;
+      if (amountEl) amountEl.textContent = Number(data.median).toLocaleString();
+      if (unitEl) unitEl.textContent = data.unit;
+      if (minEl) minEl.textContent = `${Number(data.min).toLocaleString()} ${data.currency}`;
+      if (maxEl) maxEl.textContent = `${Number(data.max).toLocaleString()} ${data.currency}`;
+      if (netEl) netEl.textContent = `~${Number(data.netEstimate).toLocaleString()} ${data.currency}`;
+      if (demandEl) demandEl.textContent = data.demand;
+
+      const regionTitles = {
+        MA: 'Morocco Market',
+        EU: 'Europe Remote Market',
+        DK: 'Nordic / Denmark Market'
+      };
+      if (pillEl) pillEl.textContent = `${regionTitles[currentRegion] || 'Market'} • ${tierNames[tier].split(' ')[0]}`;
+
+      // Progress bar percentage (min to max)
+      const pct = Math.max(20, Math.min(85, Math.round(((data.median - data.min) / (data.max - data.min || 1)) * 100)));
+      if (fillEl) fillEl.style.width = `${pct}%`;
+      if (markerEl) markerEl.style.left = `${pct}%`;
+
+    } catch (e) {
+      console.warn('Salary lookup error:', e);
+    }
+  }
+
+  if (regionToggles) {
+    const btns = regionToggles.querySelectorAll('.region-toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentRegion = btn.getAttribute('data-region') || 'MA';
+        updateSalaryDisplay();
+      });
+    });
+  }
+
+  if (roleSelect) roleSelect.addEventListener('change', updateSalaryDisplay);
+  if (seniorityRange) seniorityRange.addEventListener('input', updateSalaryDisplay);
+}
+
 // Initial Data Fetching
 async function loadInitialData() {
   try {
