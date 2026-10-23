@@ -3590,6 +3590,15 @@ body {
   .kanban-board { grid-template-columns: 1fr 1fr; }
   .search-inputs-grid { grid-template-columns: 1fr 1fr; }
   .star-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Home Command Center Responsive */
+  .hero-content-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .agent-radar-nodes-grid { grid-template-columns: repeat(4, 1fr); }
+  .home-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .quick-actions-grid { grid-template-columns: repeat(2, 1fr); }
+  .salary-radar-grid { grid-template-columns: 1fr; }
+  .spotlight-cards-grid { grid-template-columns: 1fr; }
+  .thin-pointer-pillars-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -3618,6 +3627,16 @@ body {
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+
+  /* Home Responsive Mobile */
+  .home-hero-banner { padding: 1.75rem 1.5rem; }
+  .hero-main-title { font-size: 1.85rem; }
+  .agent-radar-nodes-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-metrics-grid { grid-template-columns: 1fr; }
+  .quick-actions-grid { grid-template-columns: 1fr; }
+  .activity-event-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .event-indicator { display: none; }
+  .salary-stat-pills-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -3631,4 +3650,10 @@ body {
   .footer-actions { grid-template-columns: 1fr; }
   .toast-container { right: 12px; bottom: 12px; left: 12px; }
   .toast-message { min-width: unset; max-width: 100%; }
+
+  .hero-ambient-glow { display: none; }
+  .home-hero-banner { padding: 1.35rem 1.15rem; }
+  .hero-main-title { font-size: 1.6rem; }
+  .hero-action-buttons { grid-template-columns: 1fr; }
+  .amount-number { font-size: 2.25rem; }
 }
