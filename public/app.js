@@ -1217,6 +1217,37 @@ function initFooterModalsAndActions() {
     });
   }
 
+  // Personal Actualisation Modal Controls (Amine Arheche)
+  const actualiserModal = document.getElementById('actualiserModal');
+  const btnActualiser = document.getElementById('btnActualiserPlatform');
+  const btnCloseActualiser = document.getElementById('btnCloseActualiserModal');
+  const btnDismissActualiser = document.getElementById('btnDismissActualiserModal');
+  const btnRelaunchActualise = document.getElementById('btnRelaunchActualise');
+
+  if (btnActualiser) {
+    btnActualiser.addEventListener('click', () => {
+      actualiserPlatform({ openModal: true });
+    });
+  }
+  if (btnCloseActualiser && actualiserModal) {
+    btnCloseActualiser.addEventListener('click', () => { actualiserModal.style.display = 'none'; });
+  }
+  if (btnDismissActualiser && actualiserModal) {
+    btnDismissActualiser.addEventListener('click', () => { actualiserModal.style.display = 'none'; });
+  }
+  if (btnRelaunchActualise) {
+    btnRelaunchActualise.addEventListener('click', () => {
+      actualiserPlatform({ openModal: true });
+    });
+  }
+  if (actualiserModal) {
+    actualiserModal.addEventListener('click', (e) => {
+      if (e.target === actualiserModal) {
+        actualiserModal.style.display = 'none';
+      }
+    });
+  }
+
   // Keyboard Shortcuts Modal
   const shortcutsModal = document.getElementById('shortcutsModal');
   const btnOpenShortcuts = document.getElementById('btnFooterShortcuts');
