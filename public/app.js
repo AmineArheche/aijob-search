@@ -13,7 +13,8 @@ const state = {
   profile: null,
   activeAgent: null,
   currentDocs: { latexCV: '', coverLetter: '' },
-  activeDocType: 'cv'
+  activeDocType: 'cv',
+  preferredLang: localStorage.getItem('amine_lang_pref') || 'fr'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -990,6 +991,18 @@ async function runInterviewCoach() {
 
 // Event Listeners setup
 function initEventListeners() {
+  // Personal Welcome Pill Language Toggle (FR / EN)
+  const greetingPill = document.getElementById('headerGreetingPill');
+  if (greetingPill) {
+    greetingPill.addEventListener('click', () => {
+      state.preferredLang = state.preferredLang === 'fr' ? 'en' : 'fr';
+      localStorage.setItem('amine_lang_pref', state.preferredLang);
+      updatePersonalGreetingUi();
+      const langNotice = state.preferredLang === 'fr' ? '🇲🇦 Langue : Français (Fès)' : '🇬🇧 Language: English (Global Tech)';
+      showToast(langNotice, 'info');
+    });
+  }
+
   // Scraper button
   const btnScraper = document.getElementById('btnRunScraper');
   if (btnScraper) btnScraper.addEventListener('click', runScraperQuery);
