@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initEventListeners();
   initHomeCommandCenter();
+  updatePersonalGreetingUi();
+  setInterval(() => updatePersonalGreetingUi(), 30000);
   loadInitialData();
 });
 
@@ -54,6 +56,95 @@ function initTabs() {
       switchTab(target);
     });
   });
+}
+
+// ========================================================
+// PERSONAL TOUCH & MOROCCO TIME GREETING (AMINE ARHECHE)
+// ========================================================
+
+function getMoroccoTimeInfo() {
+  const now = new Date();
+  const timeFormatter = new Intl.DateTimeFormat('fr-FR', {
+    timeZone: 'Africa/Casablanca',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+  const timeString = timeFormatter.format(now);
+  const hourFormatter = new Intl.DateTimeFormat('fr-FR', {
+    timeZone: 'Africa/Casablanca',
+    hour: 'numeric',
+    hour12: false
+  });
+  const hour = parseInt(hourFormatter.format(now), 10);
+
+  let period = 'morning';
+  let greetingFr = 'Bonjour Amine !';
+  let greetingEn = 'Good morning, Amine!';
+  let icon = '🌅';
+  let periodLabel = 'Matinée';
+
+  if (hour >= 12 && hour < 18) {
+    period = 'afternoon';
+    greetingFr = 'Bon après-midi, Amine !';
+    greetingEn = 'Good afternoon, Amine!';
+    icon = '☀️';
+    periodLabel = 'Après-midi';
+  } else if (hour >= 18 && hour < 23) {
+    period = 'evening';
+    greetingFr = 'Bonsoir Amine !';
+    greetingEn = 'Good evening, Amine!';
+    icon = '🌆';
+    periodLabel = 'Soirée';
+  } else if (hour >= 23 || hour < 5) {
+    period = 'night';
+    greetingFr = 'Session nocturne, Amine !';
+    greetingEn = 'Night session, Amine!';
+    icon = '🌙';
+    periodLabel = 'Nuit';
+  }
+
+  return {
+    timeString,
+    hour,
+    period,
+    periodLabel,
+    greetingFr,
+    greetingEn,
+    icon
+  };
+}
+
+function updatePersonalGreetingUi(serverGreetingData) {
+  const info = getMoroccoTimeInfo();
+  const greetingEl = document.getElementById('headerGreetingText');
+  const clockEl = document.getElementById('headerCasablancaClock');
+  const modalClock = document.getElementById('modalCasablancaTime');
+  const modalTitle = document.getElementById('modalGreetingTitle');
+  const modalSub = document.getElementById('modalGreetingSub');
+  const modalIcon = document.getElementById('modalGreetingIcon');
+
+  const greeting = serverGreetingData?.greeting || (state.preferredLang === 'en' ? info.greetingEn : info.greetingFr);
+
+  if (greetingEl) {
+    greetingEl.textContent = greeting;
+  }
+  if (clockEl) {
+    clockEl.textContent = `${info.timeString.slice(0, 5)} (Fès GMT+1)`;
+  }
+  if (modalClock) {
+    modalClock.textContent = `${info.timeString} GMT+1`;
+  }
+  if (modalTitle) {
+    modalTitle.textContent = greeting;
+  }
+  if (modalSub) {
+    modalSub.textContent = `Pipeline multi-agents synchronisé • Session active à Fès (${info.periodLabel})`;
+  }
+  if (modalIcon) {
+    modalIcon.textContent = info.icon;
+  }
 }
 
 // Home Command Center Initialization
