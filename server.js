@@ -111,6 +111,66 @@ function parseProfile() {
   };
 }
 
+// Personalized candidate greeting generator for Amine Arheche (Fès GMT+1)
+function getPersonalizedGreeting(name = 'Amine') {
+  const now = new Date();
+  let hour = now.getHours();
+  try {
+    const casaTime = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Africa/Casablanca',
+      hour: 'numeric',
+      hour12: false
+    }).format(now);
+    hour = parseInt(casaTime, 10);
+  } catch (e) {}
+
+  let greetingFr = '';
+  let greetingEn = '';
+  let subFr = '';
+  let subEn = '';
+  let icon = '⚡';
+
+  if (hour >= 5 && hour < 12) {
+    greetingFr = `Bonjour ${name} 🌅`;
+    greetingEn = `Good morning ${name} 🌅`;
+    subFr = `Prêt pour une nouvelle journée de recherche et d'opportunités ?`;
+    subEn = `Ready for a high-impact job discovery session?`;
+    icon = '🌅';
+  } else if (hour >= 12 && hour < 18) {
+    greetingFr = `Bon après-midi ${name} ☀️`;
+    greetingEn = `Good afternoon ${name} ☀️`;
+    subFr = `Vos 7 agents autonomes opèrent à plein régime.`;
+    subEn = `All 7 autonomous agents are operating at peak efficiency.`;
+    icon = '☀️';
+  } else if (hour >= 18 && hour < 23) {
+    greetingFr = `Bonsoir ${name} 🌆`;
+    greetingEn = `Good evening ${name} 🌆`;
+    subFr = `Faisons le point sur vos candidatures et vos entretiens.`;
+    subEn = `Let's review your pipeline progress and interviews.`;
+    icon = '🌆';
+  } else {
+    greetingFr = `Session nocturne ${name} 🌌`;
+    greetingEn = `Night Owl session ${name} 🌌`;
+    subFr = `Les agents en arrière-plan continuent d'indexer les offres.`;
+    subEn = `Autonomous background workers are continuously indexing jobs.`;
+    icon = '🌌';
+  }
+
+  return {
+    candidateName: name,
+    greetingFr,
+    greetingEn,
+    subFr,
+    subEn,
+    icon,
+    hourCasablanca: hour,
+    moroccoCity: 'Fès',
+    region: 'Fès-Meknès, Maroc',
+    motto: "Développement Digital d'Excellence & Automatisation Multi-Agents",
+    targetObjective: 'Offre Développeur Full Stack (Morocco & Remote EU)'
+  };
+}
+
 // Read tracker CSV
 function getTrackerData() {
   ensureTrackerFile();
