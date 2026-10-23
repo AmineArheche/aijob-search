@@ -3914,6 +3914,88 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ========================================================
+   FOOTER PERSONAL SIGNATURE CREST (AMINE ARHECHE)
+   ======================================================== */
+.footer-personal-crest-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(245, 158, 11, 0.06), rgba(15, 23, 42, 0.7));
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.personal-crest-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.personal-crest-avatar {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.personal-crest-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.personal-crest-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  letter-spacing: 0.02em;
+}
+
+.personal-crest-subtitle {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.personal-crest-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.crest-chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+}
+
+.crest-chip.chip-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.crest-chip.chip-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent-cyan-bright);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.crest-chip.chip-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-green-bright);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 /* Footer Bottom Bar */
 .footer-bottom-bar {
   display: flex;
