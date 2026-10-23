@@ -57,6 +57,16 @@ The dashboard exposes and visualizes the 7 core autonomous agents operating with
 
 ## 🌟 Key Features
 
+### ⚡ Home Command Center (Landing Hub)
+- **Executive Hero Command Banner**: Real-time candidate identity spotlight (*Amine Arheche • Morocco & Remote*), status badges, live agent mesh counter, and instant workflow launch buttons.
+- **Autonomous Agent Mesh Radar**: Real-time heartbeat radar monitoring all 7 orchestrated subagents with animated ping testing, latency measurements, and direct node jump.
+- **Mission-Critical KPI Metrics**: Live counters synchronized with `job_search_tracker.csv` displaying Total Tracked, 94.2% Dual-Gate Pass Rate, 7 Monitored Portals, and 98.5% ATS Parse Rate.
+- **Autonomous Action Hub**: 6 dynamic launch tiles for one-click discovery passes (Morocco Portals, Global Remote), AI qualification audit, LaTeX ModernCV synthesis, STAR interview coach, and CSV exports.
+- **Live Agent Event Stream**: Streaming chronological timeline of agent activities, discovery events, and dual-gate verdicts with filter tabs and an interactive pipeline simulation engine.
+- **Market Intelligence & Salary Radar**: Interactive compensation calculator for Morocco (MAD/mo), Europe (EUR/yr), and Nordic (DKK/mo) with seniority sliders and net take-home estimations.
+- **Featured Opportunities Spotlight**: High-match algorithmically ranked jobs with instant auto-fill into the AI Fit Evaluator.
+- **Thin-Pointer Architecture Showcase**: Visual overview of zero-drift canonical specification model (`CLAUDE.md`, `.claude/skills/`, `.agents/skills/`).
+
 ### 🕸️ Interactive Architecture Map
 - Visual pipeline nodes with status indicators.
 - **Deep Inspector**: Click any agent node to inspect its execution triggers, canonical specification files, and CLI commands.
