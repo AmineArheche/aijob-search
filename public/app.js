@@ -1466,6 +1466,13 @@ function initKeyboardShortcuts() {
       return;
     }
 
+    // 'a' or 'A' or 'r' or 'R' for Master Platform Actualisation (Amine Arheche)
+    if (e.key === 'a' || e.key === 'A' || e.key === 'r' || e.key === 'R') {
+      e.preventDefault();
+      actualiserPlatform({ openModal: true });
+      return;
+    }
+
     // 't' or 'T' for top
     if (e.key === 't' || e.key === 'T') {
       e.preventDefault();
