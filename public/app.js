@@ -527,6 +527,21 @@ window.sendJobToEvaluator = function(encTitle, encCompany, encDesc) {
   runJobEvaluation();
 };
 
+// Load spotlight job directly into evaluator
+window.loadJobToEvaluator = function(company, title, desc) {
+  const titleInp = document.getElementById('evalTitleInput');
+  const compInp = document.getElementById('evalCompanyInput');
+  const descInp = document.getElementById('evalDescInput');
+
+  if (titleInp) titleInp.value = title;
+  if (compInp) compInp.value = company;
+  if (descInp) descInp.value = desc;
+
+  switchTab('evaluator');
+  runJobEvaluation();
+  showToast(`⚡ Loaded ${company} (${title}) into Dual-Gate Evaluator`, 'success');
+};
+
 // Run Fit Evaluation
 async function runJobEvaluation() {
   const title = document.getElementById('evalTitleInput').value;
