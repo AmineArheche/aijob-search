@@ -718,6 +718,71 @@ const server = http.createServer((req, res) => {
     return sendJson(200, parseProfile());
   }
 
+  if (pathname === '/api/market/salaries' && method === 'GET') {
+    const region = (parsedUrl.query.region || 'MA').toUpperCase();
+    const role = parsedUrl.query.role || 'fullstack';
+    const tier = parseInt(parsedUrl.query.tier, 10) || 2;
+
+    const benchmarks = {
+      MA: {
+        currency: 'MAD',
+        unit: '/ month',
+        roles: {
+          fullstack: { min: 12000, median: 22500, max: 34000, demand: 'Very High (9.2/10)' },
+          python_ai: { min: 14000, median: 26000, max: 38000, demand: 'Exceptional (9.7/10)' },
+          frontend: { min: 10000, median: 19000, max: 28000, demand: 'High (8.6/10)' },
+          backend: { min: 12000, median: 23000, max: 35000, demand: 'Very High (9.0/10)' },
+          support_tech: { min: 6500, median: 10500, max: 15000, demand: 'High (8.4/10)' }
+        }
+      },
+      EU: {
+        currency: 'EUR',
+        unit: '/ year',
+        roles: {
+          fullstack: { min: 48000, median: 68000, max: 95000, demand: 'Very High (9.1/10)' },
+          python_ai: { min: 55000, median: 78000, max: 110000, demand: 'Exceptional (9.8/10)' },
+          frontend: { min: 42000, median: 60000, max: 82000, demand: 'High (8.5/10)' },
+          backend: { min: 48000, median: 70000, max: 98000, demand: 'Very High (9.0/10)' },
+          support_tech: { min: 28000, median: 36000, max: 48000, demand: 'Moderate (7.8/10)' }
+        }
+      },
+      DK: {
+        currency: 'DKK',
+        unit: '/ month',
+        roles: {
+          fullstack: { min: 44000, median: 58000, max: 75000, demand: 'Very High (9.0/10)' },
+          python_ai: { min: 48000, median: 64000, max: 82000, demand: 'Exceptional (9.6/10)' },
+          frontend: { min: 40000, median: 52000, max: 68000, demand: 'High (8.3/10)' },
+          backend: { min: 45000, median: 60000, max: 78000, demand: 'Very High (9.2/10)' },
+          support_tech: { min: 26000, median: 34000, max: 42000, demand: 'Moderate (7.5/10)' }
+        }
+      }
+    };
+
+    const regionData = benchmarks[region] || benchmarks.MA;
+    const roleData = regionData.roles[role] || regionData.roles.fullstack;
+    const multiplier = tier === 1 ? 0.75 : tier === 2 ? 1.0 : tier === 3 ? 1.35 : 1.7;
+
+    const median = Math.round(roleData.median * multiplier);
+    const min = Math.round(roleData.min * multiplier);
+    const max = Math.round(roleData.max * multiplier);
+    const netEst = region === 'MA' ? Math.round(median * 0.81) : region === 'EU' ? Math.round(median * 0.70) : Math.round(median * 0.62);
+
+    return sendJson(200, {
+      region,
+      role,
+      tier,
+      currency: regionData.currency,
+      unit: regionData.unit,
+      min,
+      median,
+      max,
+      netEstimate: netEst,
+      demand: roleData.demand,
+      timestamp: new Date().toISOString()
+    });
+  }
+
   if (pathname === '/api/tracker' && method === 'GET') {
     return sendJson(200, getTrackerData());
   }
