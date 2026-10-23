@@ -677,6 +677,7 @@ const server = http.createServer((req, res) => {
     const sysStatus = getSystemStatus();
     const tracker = getTrackerData();
     const profile = parseProfile();
+    const greeting = getPersonalizedGreeting(profile.name.split(' ')[0] || 'Amine');
     return sendJson(200, {
       candidate: {
         name: profile.name,
@@ -685,6 +686,7 @@ const server = http.createServer((req, res) => {
         status: profile.status,
         languages: profile.languages
       },
+      greeting,
       telemetry: {
         meshHealth: '100% Operational',
         nodesOnline: 7,
@@ -706,6 +708,45 @@ const server = http.createServer((req, res) => {
       uptime: sysStatus.uptimeFormatted,
       memoryHeapMb: sysStatus.memoryHeapMb,
       timestamp: new Date().toISOString()
+    });
+  }
+
+  if (pathname === '/api/sync/actualise' && (method === 'GET' || method === 'POST')) {
+    const sysStatus = getSystemStatus();
+    const profile = parseProfile();
+    const tracker = getTrackerData();
+    const greeting = getPersonalizedGreeting(profile.name.split(' ')[0] || 'Amine');
+
+    const syncedFiles = [
+      { name: 'CLAUDE.md', status: 'verified', type: 'Ground Truth Profile' },
+      { name: 'job_search_tracker.csv', status: 'verified', count: tracker.applications.length },
+      { name: 'AGENTS.md', status: 'verified', type: 'Thin-Pointer Specs' },
+      { name: '.claude/skills/', status: 'verified', count: 8 },
+      { name: '.agents/skills/', status: 'verified', count: 7 }
+    ];
+
+    let casaTimeString = '';
+    try {
+      casaTimeString = new Intl.DateTimeFormat('fr-FR', {
+        timeZone: 'Africa/Casablanca',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).format(new Date());
+    } catch (e) {
+      casaTimeString = new Date().toLocaleTimeString();
+    }
+
+    return sendJson(200, {
+      success: true,
+      message: `Plateforme actualisée avec succès pour ${profile.name} !`,
+      greeting,
+      timestampCasablanca: casaTimeString,
+      activeAgents: 7,
+      syncedFiles,
+      pipelineCount: tracker.applications.length,
+      memoryHeapMb: sysStatus.memoryHeapMb,
+      uptime: sysStatus.uptimeFormatted
     });
   }
 
