@@ -1792,6 +1792,109 @@ Requirements:
     </div>
   </div>
 
+  <!-- Amine Arheche Personal System Actualisation Modal -->
+  <div class="modal-backdrop" id="actualiserModal" style="display: none;">
+    <div class="modal-box actualiser-modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="actualiser-modal-crest">🇲🇦</span>
+          <div>
+            <h3 class="modal-title">Centre d'Actualisation & Synchronisation Système</h3>
+            <p class="modal-sub">Espace Personnel Amine Arheche • Fès (GMT+1)</p>
+          </div>
+        </div>
+        <button class="modal-close" id="btnCloseActualiserModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Live Greeting Banner -->
+        <div class="actualiser-greeting-card">
+          <div class="actualiser-greeting-header">
+            <span class="greeting-hero-icon" id="modalGreetingIcon">⚡</span>
+            <div>
+              <h4 class="actualiser-greeting-heading" id="modalGreetingTitle">Bonjour Amine</h4>
+              <p class="actualiser-greeting-sub" id="modalGreetingSub">Actualisation du pipeline multi-agents et vérification d'intégrité.</p>
+            </div>
+          </div>
+          <div class="actualiser-time-chip">
+            <span>Heure de Fès :</span>
+            <strong id="modalCasablancaTime">--:--:--</strong>
+          </div>
+        </div>
+
+        <!-- Sync Progress Bar -->
+        <div class="sync-progress-section">
+          <div class="sync-progress-label-row">
+            <span>Synchronisation de l'état du système</span>
+            <span class="sync-status-badge" id="modalSyncBadge">✓ 100% Vérifié</span>
+          </div>
+          <div class="sync-progress-bar">
+            <div class="sync-progress-fill" id="modalSyncProgressFill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Files & Specification Integrity Grid -->
+        <div class="integrity-checklist-grid" id="modalIntegrityChecklist">
+          <div class="checklist-item">
+            <span class="check-icon text-green">✓</span>
+            <div class="check-info">
+              <strong>CLAUDE.md</strong>
+              <span>Profil candidat, contact & compétences validés</span>
+            </div>
+            <span class="check-tag tag-cyan">Ground Truth</span>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check-icon text-green">✓</span>
+            <div class="check-info">
+              <strong>job_search_tracker.csv</strong>
+              <span>5 opportunités synchronisées & vérifiées</span>
+            </div>
+            <span class="check-tag tag-purple">Pipeline CSV</span>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check-icon text-green">✓</span>
+            <div class="check-info">
+              <strong>AGENTS.md & .claude/</strong>
+              <span>Pointeurs fins & règles de workflows vérifiés</span>
+            </div>
+            <span class="check-tag tag-emerald">Zero Drift</span>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check-icon text-green">✓</span>
+            <div class="check-info">
+              <strong>Maillage 7 Agents Autonomes</strong>
+              <span>Découverte, évaluation et coach STAR opérationnels</span>
+            </div>
+            <span class="check-tag tag-amber">7/7 En ligne</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Log -->
+        <div class="actualiser-console-box">
+          <div class="console-top">
+            <span class="console-dot red"></span>
+            <span class="console-dot yellow"></span>
+            <span class="console-dot green"></span>
+            <span class="console-title">journal-actualisation-amine.log</span>
+          </div>
+          <pre class="console-logs" id="modalConsoleLogs">[16:49:12] Initialisation de la synchronisation système pour Amine Arheche
+[16:49:12] Lecture de CLAUDE.md : Profil DTS Digital & CISCO certifié confirmé
+[16:49:13] Connexion au maillage des 7 agents : 7/7 réponses reçues (12ms)
+[16:49:13] Synchronisation du tracker : 5 opportunités enregistrées
+[16:49:13] Statut : Intégrité optimale, 0 dérive de configuration</pre>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnDismissActualiserModal">Fermer</button>
+        <button class="btn btn-primary" id="btnRelaunchActualise">
+          <span>⚡ Réactualiser tout maintenant</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Toast Notification System Container -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
