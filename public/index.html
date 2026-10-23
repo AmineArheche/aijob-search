@@ -155,6 +155,133 @@
           </div>
         </div>
       </div>
+
+      <!-- Autonomous Agent Mesh Radar Strip -->
+      <div class="agent-mesh-radar-panel">
+        <div class="radar-panel-header">
+          <div class="radar-header-left">
+            <span class="radar-beacon-dot"></span>
+            <div>
+              <h3 class="radar-panel-title">Autonomous Agent Mesh Radar</h3>
+              <p class="radar-panel-subtitle">Real-time heartbeat & operational telemetry across all 7 orchestrated subagents</p>
+            </div>
+          </div>
+          <div class="radar-header-right">
+            <span class="radar-mesh-pill"><span class="radar-mesh-count" id="radarMeshSummary">7/7 Nodes Active</span></span>
+            <span class="radar-latency-tag">Sync: <strong id="radarAvgLatency">14ms</strong></span>
+            <button class="btn btn-secondary btn-sm" id="btnPingAgentMesh" title="Ping all agent subroutines">
+              <span>⚡ Mesh Ping</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="agent-radar-nodes-grid" id="agentRadarGrid">
+          <!-- Node 1: Candidate Profiler -->
+          <div class="radar-node-card" onclick="switchTab('profile')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-01</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">👤</div>
+            <div class="node-radar-name">Candidate Profiler</div>
+            <div class="node-radar-sub"><code>/setup</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">Ground Truth</span>
+              <span class="node-latency-pill">9ms</span>
+            </div>
+          </div>
+
+          <!-- Node 2: Portal Scrapers -->
+          <div class="radar-node-card" onclick="switchTab('scrapers')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-02</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">🌐</div>
+            <div class="node-radar-name">Portal Scrapers</div>
+            <div class="node-radar-sub"><code>/scrape</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">7 Portals</span>
+              <span class="node-latency-pill">22ms</span>
+            </div>
+          </div>
+
+          <!-- Node 3: Fit Evaluator -->
+          <div class="radar-node-card" onclick="switchTab('evaluator')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-03</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">⚖️</div>
+            <div class="node-radar-name">Fit Evaluator</div>
+            <div class="node-radar-sub"><code>04-job-eval</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">Dual Gates</span>
+              <span class="node-latency-pill">12ms</span>
+            </div>
+          </div>
+
+          <!-- Node 4: Tailored Drafter -->
+          <div class="radar-node-card" onclick="switchTab('evaluator')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-04</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">📝</div>
+            <div class="node-radar-name">Tailored Drafter</div>
+            <div class="node-radar-sub"><code>/apply</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">LaTeX ModernCV</span>
+              <span class="node-latency-pill">18ms</span>
+            </div>
+          </div>
+
+          <!-- Node 5: ATS Reviewer -->
+          <div class="radar-node-card" onclick="switchTab('architecture')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-05</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">🛡️</div>
+            <div class="node-radar-name">ATS Reviewer</div>
+            <div class="node-radar-sub"><code>verify_pdf</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">PDF Layout</span>
+              <span class="node-latency-pill">15ms</span>
+            </div>
+          </div>
+
+          <!-- Node 6: Interview Coach -->
+          <div class="radar-node-card" onclick="switchTab('interview')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-06</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">🎤</div>
+            <div class="node-radar-name">Interview Coach</div>
+            <div class="node-radar-sub"><code>/interview</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">STAR Coach</span>
+              <span class="node-latency-pill">16ms</span>
+            </div>
+          </div>
+
+          <!-- Node 7: Funnel Tracker -->
+          <div class="radar-node-card" onclick="switchTab('tracker')">
+            <div class="node-top-bar">
+              <span class="node-agent-id">AGENT-07</span>
+              <span class="node-status-dot online"></span>
+            </div>
+            <div class="node-radar-icon">📈</div>
+            <div class="node-radar-name">Funnel Tracker</div>
+            <div class="node-radar-sub"><code>/html-report</code></div>
+            <div class="node-radar-meta">
+              <span class="node-meta-badge">CSV Pipeline</span>
+              <span class="node-latency-pill">11ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TAB 1: ARCHITECTURE & AGENTS MAP -->
