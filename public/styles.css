@@ -1779,6 +1779,132 @@ body {
   color: var(--accent-green-bright);
 }
 
+/* ========================================================
+   HOME COMMAND CENTER: THIN-POINTER ARCHITECTURE PANEL
+   ======================================================== */
+.home-thin-pointer-panel {
+  background: rgba(12, 18, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 2rem;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.thin-pointer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.thin-pointer-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.thin-pointer-icon {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.4));
+}
+
+.thin-pointer-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-highlight);
+}
+
+.thin-pointer-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.thin-pointer-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.thin-pillar-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s var(--ease-smooth);
+}
+
+.thin-pillar-card:hover {
+  background: rgba(22, 34, 60, 0.8);
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4), var(--shadow-glow-purple);
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: rgba(139, 92, 246, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-file-badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-file-badge code {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-purple-bright);
+  background: rgba(139, 92, 246, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.pillar-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.15rem;
+}
+
+.pillar-action-link {
+  background: transparent;
+  border: none;
+  color: var(--accent-cyan-bright);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.pillar-action-link:hover {
+  text-decoration: underline;
+  transform: translateX(3px);
+}
+
 /* Section Intro */
 .section-intro {
   display: flex;
